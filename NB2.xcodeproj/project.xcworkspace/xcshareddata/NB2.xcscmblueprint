@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "30eeb09b-c8d0-4eca-860c-654b9add97b8++3539",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "30eeb09b-c8d0-4eca-860c-654b9add97b8++3539" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "30eeb09b-c8d0-4eca-860c-654b9add97b8++3539" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4B716D9F-D012-49E9-B433-666D19E93E8A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "30eeb09b-c8d0-4eca-860c-654b9add97b8++3539" : "%E5%85%AC%E4%BC%97%E5%88%9B%E6%84%8F%E5%BC%80%E5%8F%91%E7%89%881\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "NB2",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "NB2.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/localhost\/jaycode",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "30eeb09b-c8d0-4eca-860c-654b9add97b8++3539"
+    }
+  ]
+}

@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/NetWorking/HttpTool/HttpTool.m"
+            timestampString = "480933588.659565"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "+myPostWithBaseURL:path:params:success:failure:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/NetWorking/HttpTool/HttpTool.m"
+            timestampString = "480933607.187918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "+myPostWithBaseURL:path:params:success:failure:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;/NumberViewController.m"
+            timestampString = "497797933.758567"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
+            landmarkName = "-scrollView:loadWithState:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;/NumberViewController.m"
+            timestampString = "497797933.758567"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "-scrollView:loadWithState:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5339;&#x914d;&#x4e2d;&#x5fc3;/AgreeViewController.m"
+            timestampString = "492169748.375781"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-clickchooses"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5339;&#x914d;&#x4e2d;&#x5fc3;/AgreeViewController.m"
+            timestampString = "483542685.15044"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "-clicksubmit"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5339;&#x914d;&#x4e2d;&#x5fc3;/AgreeViewController.m"
+            timestampString = "495802230.990133"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "-clicksubmit"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5339;&#x914d;&#x4e2d;&#x5fc3;/AgreeViewController.m"
+            timestampString = "495802230.990133"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "-clicksubmit"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__34-[AgreeViewController clicksubmit]_block_invoke"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/%E9%A6%96%E9%A1%B5/%E5%8C%B9%E9%85%8D%E4%B8%AD%E5%BF%83/AgreeViewController.m"
+                  timestampString = "495801723.306087"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "291"
+                  endingLineNumber = "291"
+                  offsetFromSymbolStart = "611">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/%E9%A6%96%E9%A1%B5/%E5%8C%B9%E9%85%8D%E4%B8%AD%E5%BF%83/AgreeViewController.m"
+                  timestampString = "495801723.306246"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/%E9%A6%96%E9%A1%B5/%E5%8C%B9%E9%85%8D%E4%B8%AD%E5%BF%83/AgreeViewController.m"
+                  timestampString = "495801723.306373"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__34-[AgreeViewController clicksubmit]_block_invoke251"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/%E9%A6%96%E9%A1%B5/%E5%8C%B9%E9%85%8D%E4%B8%AD%E5%BF%83/AgreeViewController.m"
+                  timestampString = "495801723.306498"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "291"
+                  endingLineNumber = "291"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/NetWorking/HttpTool/HttpTool.m"
+            timestampString = "483548869.560266"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "+uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[HttpTool uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:]"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/NetWorking/HttpTool/HttpTool.m"
+                  timestampString = "495801723.308072"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "1674">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__92+[HttpTool uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:]_block_invoke_2"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/NetWorking/HttpTool/HttpTool.m"
+                  timestampString = "495801723.308251"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_134"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/NetWorking/HttpTool/HttpTool.m"
+                  timestampString = "495801723.308389"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_135"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/NetWorking/HttpTool/HttpTool.m"
+                  timestampString = "495801723.308522"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__92+[HttpTool uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:]_block_invoke138"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/NetWorking/HttpTool/HttpTool.m"
+                  timestampString = "495801723.308659"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/NetWorking/HttpTool/HttpTool.m"
+            timestampString = "483545312.859601"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "+uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/NetWorking/HttpTool/HttpTool.m"
+            timestampString = "483548869.560266"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "+uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[HttpTool uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:]"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/NetWorking/HttpTool/HttpTool.m"
+                  timestampString = "495801723.31159"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "1576">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__92+[HttpTool uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:]_block_invoke130"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/NetWorking/HttpTool/HttpTool.m"
+                  timestampString = "495801723.311772"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__92+[HttpTool uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:]_block_invoke_2"
+                  moduleName = "&#x660e;&#x65e5;&#x4e4b;&#x661f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zcc/Desktop/NB2-2-2-2-2/NB2/NetWorking/HttpTool/HttpTool.m"
+                  timestampString = "495801723.311895"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "61">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/NetWorking/HttpTool/HttpTool.m"
+            timestampString = "483548869.560266"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "+uploadImage:postParems:postParemd:picFileName:index:beizhu:data:success:failure:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5339;&#x914d;&#x4e2d;&#x5fc3;/AgreeViewController.m"
+            timestampString = "495802230.990133"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "-clicksubmit"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5339;&#x914d;&#x4e2d;&#x5fc3;/AgreeViewController.m"
+            timestampString = "483546887.354929"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "-clicksubmit"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5339;&#x914d;&#x4e2d;&#x5fc3;/RecordListViewController.m"
+            timestampString = "493723964.825065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "397"
+            endingLineNumber = "397">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/Register/RegisterViewController.m"
+            timestampString = "485854673.817728"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-sendCode"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/ResgitViewController.m"
+            timestampString = "485348070.965091"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "-textFieldDidBeginEditing:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/ResgitViewController.m"
+            timestampString = "485348070.965091"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "-clickPresver"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/ResgitViewController.m"
+            timestampString = "485348070.965091"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "331"
+            endingLineNumber = "331"
+            landmarkName = "-clickPresver"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/ResgitViewController.m"
+            timestampString = "485348070.965091"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "-actionRight"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/AtiinateViewController.m"
+            timestampString = "485855072.404798"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5956;&#x91d1;&#x4e1a;&#x7ee9;/BonusViewController.m"
+            timestampString = "492163564.942401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-initData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5956;&#x91d1;&#x4e1a;&#x7ee9;/BonusViewController.m"
+            timestampString = "492163574.238648"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "-initData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5339;&#x914d;&#x4e2d;&#x5fc3;/EnquiriesViewController.m"
+            timestampString = "495801701.447005"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-initData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x9996;&#x9875;/&#x5339;&#x914d;&#x4e2d;&#x5fc3;/EnquiriesViewController.m"
+            timestampString = "495802230.990133"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "-initData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
