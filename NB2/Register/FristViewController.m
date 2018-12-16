@@ -60,7 +60,7 @@
     // 用户名输入
     nameTF = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.15, CGRectGetMaxY(imgview.frame)+SCREEN_HEIGHT/12.0,SCREEN_WIDTH*0.7, 40)];
     [nameTF setPlaceholder:@" 请输入账号"];
-    [self changeLayerCornerLeftImg:nameTF leftImgName:@"user"];
+    [self changeLayerCornerLeftImg:nameTF leftImgName:@"login_user"];
     [bodyView addSubview:nameTF];
     // 密码输入
     keywordNoTF = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.15, CGRectGetMaxY(nameTF.frame)+20, SCREEN_WIDTH*0.7, 40)];

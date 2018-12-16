@@ -270,6 +270,7 @@
 		64E85A9F217B62BC00A3D3E0 /* ic_station_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E85A9C217B62BB00A3D3E0 /* ic_station_11.png */; };
 		64E85AA0217B62BC00A3D3E0 /* ic_station_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E85A9D217B62BB00A3D3E0 /* ic_station_10.png */; };
 		64E85AA1217B62BC00A3D3E0 /* ic_station_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E85A9E217B62BC00A3D3E0 /* ic_station_9.png */; };
+		A0346D0A21C644F8006FDF9E /* UIButton+PASEExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = A0346D0921C644F8006FDF9E /* UIButton+PASEExtra.m */; };
 		BF44E8711E7560810091D9C9 /* MyPaidanbiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44E8701E7560810091D9C9 /* MyPaidanbiViewController.m */; };
 		BF44E8741E7569820091D9C9 /* PaidanRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44E8731E7569820091D9C9 /* PaidanRecordViewController.m */; };
 		BF44E8761E7584ED0091D9C9 /* index.png in Resources */ = {isa = PBXBuildFile; fileRef = BF44E8751E7584ED0091D9C9 /* index.png */; };
@@ -758,6 +759,8 @@
 		64E85A9C217B62BB00A3D3E0 /* ic_station_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_station_11.png; sourceTree = "<group>"; };
 		64E85A9D217B62BB00A3D3E0 /* ic_station_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_station_10.png; sourceTree = "<group>"; };
 		64E85A9E217B62BC00A3D3E0 /* ic_station_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_station_9.png; sourceTree = "<group>"; };
+		A0346D0821C644F8006FDF9E /* UIButton+PASEExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+PASEExtra.h"; sourceTree = "<group>"; };
+		A0346D0921C644F8006FDF9E /* UIButton+PASEExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+PASEExtra.m"; sourceTree = "<group>"; };
 		BF44E86F1E7560810091D9C9 /* MyPaidanbiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPaidanbiViewController.h; sourceTree = "<group>"; };
 		BF44E8701E7560810091D9C9 /* MyPaidanbiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPaidanbiViewController.m; sourceTree = "<group>"; };
 		BF44E8721E7569820091D9C9 /* PaidanRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaidanRecordViewController.h; sourceTree = "<group>"; };
@@ -1821,6 +1824,8 @@
 		64BD6A6B1F63BF4900EC2DD6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				A0346D0821C644F8006FDF9E /* UIButton+PASEExtra.h */,
+				A0346D0921C644F8006FDF9E /* UIButton+PASEExtra.m */,
 				64BD6A6C1F63BFE100EC2DD6 /* KKAlertView.h */,
 				64BD6A6D1F63BFE100EC2DD6 /* KKAlertView.m */,
 				64BD6A7F1F64637000EC2DD6 /* KKActionSheetView.h */,
@@ -2147,6 +2152,7 @@
 				BF84057D1F41481F0029B3B5 /* UIColor+Addition.m in Sources */,
 				64BD6A801F64637000EC2DD6 /* KKActionSheetView.m in Sources */,
 				5118ED8E1D1C30A400EC37D4 /* SBJsonStreamWriterState.m in Sources */,
+				A0346D0A21C644F8006FDF9E /* UIButton+PASEExtra.m in Sources */,
 				64018DC11F62C94000669B0F /* PSTCollectionViewFlowLayout.m in Sources */,
 				BF84057E1F41481F0029B3B5 /* UIColor+Helper.m in Sources */,
 				64B541271F5EA725006889E0 /* MyPageControl.m in Sources */,

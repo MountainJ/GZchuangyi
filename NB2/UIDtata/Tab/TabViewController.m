@@ -72,10 +72,10 @@
 //初始化子控制器
 -(void)_initViewController{
     
-  OneViewController *homevc = (OneViewController *) [self creatAddVC:[OneViewController new] title:@"首页" imgName:@"home"];
-    [self creatAddVC:[TwoViewController new] title:@"系统公告" imgName:@"notice"];
-    [self creatAddVC:[FourViewController new] title:@"系统设置" imgName:@"set"];
-    [self creatAddVC:[FiveViewController new] title:@"会员中心" imgName:@"user"];
+   [self creatAddVC:[OneViewController new] title:@"首页" imgName:@"home"];
+    [self creatAddVC:[TwoViewController new] title:@"公告" imgName:@"notice"];
+    [self creatAddVC:[FourViewController new] title:@"设置" imgName:@"setting"];
+    [self creatAddVC:[FiveViewController new] title:@"个人" imgName:@"user"];
 
 //
 //    OneViewController *_home = [[OneViewController alloc] init];
