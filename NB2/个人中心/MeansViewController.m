@@ -59,7 +59,7 @@
                 [arrayData addObject:SAFE_STRING([dictionData objectForKey:@"sex"])];
                 [arrayData addObject:SAFE_STRING([dictionData objectForKey:@"shijian"])];
                 [arrayData addObject:SAFE_STRING([dictionData objectForKey:@"lasttime"])];
-                [arrayData addObject:SAFE_STRING([dictionData objectForKey:@"jibie"])];
+//                [arrayData addObject:SAFE_STRING([dictionData objectForKey:@"jibie"])];
                 [arrayData addObject:SAFE_STRING([dictionData objectForKey:@"tuijian"])];
                 [self initUI:300];
             }
@@ -164,7 +164,8 @@
     [self.view sendSubviewToBack:keyview];
     
 //    NSArray *arraytitle=[[NSArray alloc] initWithObjects:@"会员账号:",@"姓名:",@"性别:",@"注册时间",@"最后登录时间",@"会员级别",@"推荐人编号",@"服务中心编号",nil];
-    NSArray *arraytitle=[[NSArray alloc] initWithObjects:@"会员账号:",@"姓名:",@"性别:",@"注册时间",@"最后登录时间",@"会员级别",@"推荐人编号",nil];
+//    NSArray *arraytitle=[[NSArray alloc] initWithObjects:@"会员账号:",@"姓名:",@"性别:",@"注册时间",@"最后登录时间",@"会员级别",@"推荐人编号",nil];
+    NSArray *arraytitle=[[NSArray alloc] initWithObjects:@"会员账号:",@"姓名:",@"性别:",@"注册时间",@"最后登录时间",@"推荐人编号",nil];
 
     for (int i=0; i<arraytitle.count; i++)
     {
@@ -247,7 +248,8 @@
     [self.view addSubview:keyview1];
     [self.view sendSubviewToBack:keyview1];
     
-    NSArray *arraytitle=[[NSArray alloc] initWithObjects:@"推荐人数:",@"可用额度:",nil];
+//    NSArray *arraytitle=[[NSArray alloc] initWithObjects:@"推荐人数:",@"可用额度:",nil];
+    NSArray *arraytitle=[[NSArray alloc] initWithObjects:@"有效直推:",@"可用额度:",nil];
     for (int i=0; i<arraytitle.count; i++)
     {
         UILabel *labletitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 35*(i+1), SCREEN_WIDTH*0.28, 25)];
