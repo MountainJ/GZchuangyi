@@ -74,7 +74,7 @@
     UIButton *rsgister=[UIButton buttonWithType:UIButtonTypeCustom];
     rsgister.frame=CGRectMake(CGRectGetMaxX(keywordNoTF.frame)-rigeWidth,CGRectGetMaxY(keywordNoTF.frame) + KKFitScreen(10.) , rigeWidth, 40);
     [rsgister setTitle:@"快速注册" forState:UIControlStateNormal];
-    [rsgister.titleLabel setFont:[UIFont systemFontOfSize:20]];
+    [rsgister.titleLabel setFont:[UIFont systemFontOfSize:14.]];
     [rsgister setTitleColor:[UIColor colorWithRed:41./255 green:153.0/255 blue:251.0/255 alpha:1] forState:UIControlStateNormal];
     [rsgister addTarget:self action:@selector(clickRsgister) forControlEvents:UIControlEventTouchUpInside];
     [bodyView addSubview:rsgister];
