@@ -12,6 +12,10 @@
 #import "TabViewController.h"
 #import "RegisterViewController.h"
 #import "ForgetViewController.h"
+
+
+#define LINE_COLOR  [[UIColor lightGrayColor] colorWithAlphaComponent:0.5]
+
 @interface FristViewController ()
 {
     UITextField *nameTF;
@@ -56,63 +60,64 @@
     // 用户名输入
     nameTF = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.15, CGRectGetMaxY(imgview.frame)+SCREEN_HEIGHT/12.0,SCREEN_WIDTH*0.7, 40)];
     [nameTF setPlaceholder:@" 请输入账号"];
-    [nameTF setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-    //    [nameTF addTarget:self action:@selector(returnResignKeyBoard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    nameTF.clearButtonMode = UITextFieldViewModeWhileEditing;//清除button
-    nameTF.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消自动大小写
-    nameTF.contentVerticalAlignment =UIControlContentVerticalAlignmentCenter;
-    //nameTF.delegate = self;
-    nameTF.textColor=[UIColor whiteColor];
-    nameTF.layer.masksToBounds=YES;
-    nameTF.layer.cornerRadius=3;
-    nameTF.backgroundColor=[UIColor grayColor];
-    [nameTF setFont:[UIFont systemFontOfSize:15]];
+    [self changeLayerCornerLeftImg:nameTF leftImgName:@""];
     [bodyView addSubview:nameTF];
-    
     // 密码输入
     keywordNoTF = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.15, CGRectGetMaxY(nameTF.frame)+20, SCREEN_WIDTH*0.7, 40)];
     [keywordNoTF setPlaceholder:@" 请输入密码"];
     keywordNoTF.secureTextEntry = YES;
-    keywordNoTF.clearButtonMode = UITextFieldViewModeWhileEditing;//清除button
-    [keywordNoTF setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-    keywordNoTF.layer.masksToBounds=YES;
-    keywordNoTF.layer.cornerRadius=3;
-    keywordNoTF.textColor=[UIColor whiteColor];
-    keywordNoTF.backgroundColor=[UIColor grayColor];
-
-    keywordNoTF.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消自动大小写
-    keywordNoTF.contentVerticalAlignment =UIControlContentVerticalAlignmentCenter;
-    //keywordNoTF.delegate = self;
-    [keywordNoTF setFont:[UIFont systemFontOfSize:15]];
+    [self changeLayerCornerLeftImg:keywordNoTF leftImgName:@""];
     [bodyView addSubview:keywordNoTF];
     
-    UIButton *lognB = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.15 ,CGRectGetMaxY(keywordNoTF.frame)+20,SCREEN_WIDTH*0.7,40)];
-    //    [lognB setBackgroundImage:[UIImage imageNamed:@"btn_big_n"] forState:UIControlStateNormal];
-    lognB.backgroundColor = [UIColor colorWithRed:0.0/255 green:128.0/255 blue:204.0/255 alpha:1];
+    
+    CGFloat rigeWidth = KKFitScreen(160);
+    UIButton *rsgister=[UIButton buttonWithType:UIButtonTypeCustom];
+    rsgister.frame=CGRectMake(CGRectGetMaxX(keywordNoTF.frame)-rigeWidth,CGRectGetMaxY(keywordNoTF.frame) + KKFitScreen(10.) , rigeWidth, 40);
+    [rsgister setTitle:@"快速注册" forState:UIControlStateNormal];
+    [rsgister.titleLabel setFont:[UIFont systemFontOfSize:20]];
+    [rsgister setTitleColor:[UIColor colorWithRed:41./255 green:153.0/255 blue:251.0/255 alpha:1] forState:UIControlStateNormal];
+    [rsgister addTarget:self action:@selector(clickRsgister) forControlEvents:UIControlEventTouchUpInside];
+    [bodyView addSubview:rsgister];
+    
+    
+    
+    UIButton *lognB = [UIButton buttonWithType:UIButtonTypeCustom];
+    lognB.frame = CGRectMake(CGRectGetMinX(keywordNoTF.frame) ,CGRectGetMaxY(rsgister.frame)+KKFitScreen(30.),CGRectGetWidth(keywordNoTF.frame),40.);
+    lognB.backgroundColor = [UIColor colorWithRed:38./255 green:150.0/255 blue:251.0/255 alpha:1];
     lognB.layer.masksToBounds=YES;
-    lognB.layer.cornerRadius=3;
+    lognB.layer.cornerRadius = 5.;
     lognB.showsTouchWhenHighlighted = YES;
     [lognB setTitle:@"登录" forState:UIControlStateNormal];
     [lognB.titleLabel setFont:[UIFont systemFontOfSize:20]];
     [lognB addTarget:self action:@selector(logn) forControlEvents:UIControlEventTouchUpInside];
     [bodyView addSubview:lognB];
     
-    UIButton *rsgister=[UIButton buttonWithType:UIButtonTypeCustom];
-    rsgister.frame=CGRectMake(SCREEN_WIDTH*0.15,CGRectGetMaxY(lognB.frame)+5 , 40, 40);
-    [rsgister setTitle:@"注册" forState:UIControlStateNormal];
-    [rsgister setTitleColor:[UIColor colorWithRed:0.0/255 green:128.0/255 blue:204.0/255 alpha:1] forState:UIControlStateNormal];
-    [rsgister addTarget:self action:@selector(clickRsgister) forControlEvents:UIControlEventTouchUpInside];
-    [bodyView addSubview:rsgister];
-    
-//    UIButton *forget=[UIButton buttonWithType:UIButtonTypeCustom];
-//    forget.frame=CGRectMake(SCREEN_WIDTH*0.85-80,CGRectGetMaxY(lognB.frame)+5 , 80, 40);
-//    [forget setTitle:@"忘记密码" forState:UIControlStateNormal];
-//    [forget addTarget:self action:@selector(clickForget) forControlEvents:UIControlEventTouchUpInside];
-//    [forget setTitleColor:[UIColor colorWithRed:0.0/255 green:128.0/255 blue:204.0/255 alpha:1] forState:UIControlStateNormal];
-//    [bodyView addSubview:forget];
-
-
 }
+
+- (void)changeLayerCornerLeftImg:(UITextField *)textField leftImgName:(NSString *)imgName
+{
+    textField.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消自动大小写
+    textField.contentVerticalAlignment =UIControlContentVerticalAlignmentCenter;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;//清除button
+
+    textField.textColor=[UIColor darkTextColor];
+    [textField setFont:[UIFont systemFontOfSize:15]];
+
+    textField.backgroundColor= [UIColor whiteColor];
+    [textField setValue:LINE_COLOR forKeyPath:@"_placeholderLabel.textColor"];
+
+    textField.layer.cornerRadius = 10.f;
+    textField.layer.masksToBounds = YES;
+    textField.layer.borderWidth = 1.f;
+    textField.layer.borderColor =LINE_COLOR.CGColor;
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
+    imgView.backgroundColor = [UIColor redColor];
+    imgView.frame = CGRectMake(0, 0, 30., 30.);
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    textField.leftView = imgView;
+}
+
+
 -(void)clickRsgister
 {
     RegisterViewController *resgiter=[[RegisterViewController alloc] init];
