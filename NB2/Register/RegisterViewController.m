@@ -52,8 +52,9 @@
     bodyView.userInteractionEnabled=YES;
     [self.view addSubview:bodyView];
     
-    UIImageView *imgview=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.4, SCREEN_HEIGHT*0.01, 80, 90)];
-    imgview.image=[UIImage imageNamed:@"app_brand_icon"];
+    CGFloat iconWidth = 100.;
+    UIImageView *imgview=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.5 - iconWidth * 0.5, SCREEN_HEIGHT*0.05, iconWidth, iconWidth)];
+    imgview.image=[UIImage imageNamed:@"logo"];
     [bodyView addSubview:imgview];
     
     // 用户名输入

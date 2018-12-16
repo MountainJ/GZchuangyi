@@ -52,21 +52,21 @@
     bodyView.userInteractionEnabled=YES;
     [self.view addSubview:bodyView];
     
-    UIImageView *imgview=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.4, SCREEN_HEIGHT*0.16, 80, 90)];
-    imgview.image=[UIImage imageNamed:@"app_brand_icon"];
-
+    CGFloat iconWidth = 100.;
+    UIImageView *imgview=[[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.5 - iconWidth *0.5, SCREEN_HEIGHT*0.16, iconWidth, iconWidth)];
+    imgview.image=[UIImage imageNamed:@"logo"];
     [bodyView addSubview:imgview];
     
     // 用户名输入
     nameTF = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.15, CGRectGetMaxY(imgview.frame)+SCREEN_HEIGHT/12.0,SCREEN_WIDTH*0.7, 40)];
     [nameTF setPlaceholder:@" 请输入账号"];
-    [self changeLayerCornerLeftImg:nameTF leftImgName:@""];
+    [self changeLayerCornerLeftImg:nameTF leftImgName:@"user"];
     [bodyView addSubview:nameTF];
     // 密码输入
     keywordNoTF = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.15, CGRectGetMaxY(nameTF.frame)+20, SCREEN_WIDTH*0.7, 40)];
     [keywordNoTF setPlaceholder:@" 请输入密码"];
     keywordNoTF.secureTextEntry = YES;
-    [self changeLayerCornerLeftImg:keywordNoTF leftImgName:@""];
+    [self changeLayerCornerLeftImg:keywordNoTF leftImgName:@"Password"];
     [bodyView addSubview:keywordNoTF];
     
     
@@ -74,7 +74,7 @@
     UIButton *rsgister=[UIButton buttonWithType:UIButtonTypeCustom];
     rsgister.frame=CGRectMake(CGRectGetMaxX(keywordNoTF.frame)-rigeWidth,CGRectGetMaxY(keywordNoTF.frame) + KKFitScreen(10.) , rigeWidth, 40);
     [rsgister setTitle:@"快速注册" forState:UIControlStateNormal];
-    [rsgister.titleLabel setFont:[UIFont systemFontOfSize:14.]];
+    [rsgister.titleLabel setFont:[UIFont systemFontOfSize:16.]];
     [rsgister setTitleColor:[UIColor colorWithRed:41./255 green:153.0/255 blue:251.0/255 alpha:1] forState:UIControlStateNormal];
     [rsgister addTarget:self action:@selector(clickRsgister) forControlEvents:UIControlEventTouchUpInside];
     [bodyView addSubview:rsgister];
@@ -106,15 +106,18 @@
     textField.backgroundColor= [UIColor whiteColor];
     [textField setValue:LINE_COLOR forKeyPath:@"_placeholderLabel.textColor"];
 
-    textField.layer.cornerRadius = 10.f;
+    textField.layer.cornerRadius = 6.f;
     textField.layer.masksToBounds = YES;
     textField.layer.borderWidth = 1.f;
     textField.layer.borderColor =LINE_COLOR.CGColor;
-    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
-    imgView.backgroundColor = [UIColor redColor];
-    imgView.frame = CGRectMake(0, 0, 30., 30.);
+    CGFloat margin = 10.;
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40., 20.)];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(margin, 0, backView.frame.size.width - 2*margin, backView.frame.size.height)];
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    imgView.image = [UIImage imageNamed:imgName];
+    [backView addSubview:imgView];
     textField.leftViewMode = UITextFieldViewModeAlways;
-    textField.leftView = imgView;
+    textField.leftView = backView;
 }
 
 
