@@ -27,7 +27,7 @@
 - (id)initWithItems:(NSArray *)items {
     self = [super init];
     if (self) {
-        self.frame = CGRectMake(0, SCREEN_HEIGHT - HEIGHT_MENU_VIEW, SCREEN_WIDTH, 45);
+        self.frame = CGRectMake(0, SCREEN_HEIGHT - HEIGHT_MENU_VIEW, SCREEN_WIDTH, 70);
         self.backgroundColor = [UIColor blueColor];
         
         self.buttonData = [[NSMutableArray alloc]initWithArray:items];
@@ -63,7 +63,7 @@
         NSInteger buttonX = (count * buttonSize) +count;
         
         UIButton *tabButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        tabButton.frame  = CGRectMake(buttonX, 0, buttonSize , 45);
+        tabButton.frame  = CGRectMake(buttonX, 0, buttonSize , 70);
 //        UIImage *tabButtonBackground = [[UIImage imageNamed:@"tabButtonBackground"]stretchableImageWithLeftCapWidth:1 topCapHeight:0];
 //        UIImage *hightabButtonBackground = [[UIImage imageNamed:@"hightabButtonBackground"]stretchableImageWithLeftCapWidth:1 topCapHeight:0];
         

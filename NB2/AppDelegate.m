@@ -19,20 +19,36 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
-
+    
     NavViewController *nav;
     if (![ConvertValue isNULL:UID]&&![ConvertValue isNULL:MD5])
     {
         TabViewController *rootVC = [[TabViewController alloc]init];
-        nav=[[NavViewController alloc] initWithRootViewController:rootVC];
+        self.window.rootViewController = rootVC;
+
     }else
     {
         FristViewController *rootVC = [[FristViewController alloc]init];
         nav=[[NavViewController alloc] initWithRootViewController:rootVC];
+        nav.navigationBarHidden=YES;
+        self.window.rootViewController = nav;
     }
-    nav.navigationBarHidden=YES;
+    
+
+//    NavViewController *nav;
+//    if (![ConvertValue isNULL:UID]&&![ConvertValue isNULL:MD5])
+//    {
+//        TabViewController *rootVC = [[TabViewController alloc]init];
+//        nav=[[NavViewController alloc] initWithRootViewController:rootVC];
+//    }else
+//    {
+//        FristViewController *rootVC = [[FristViewController alloc]init];
+//        nav=[[NavViewController alloc] initWithRootViewController:rootVC];
+//    }
+//    nav.navigationBarHidden=YES;
+    
+    
     //配置工程基本的基本配置
-    self.window.rootViewController = nav;
     //[self performSelector:@selector(test) withObject:nil afterDelay:0.35f];
     
     return YES;

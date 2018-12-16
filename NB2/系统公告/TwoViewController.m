@@ -31,6 +31,18 @@
 
     // Do any additional setup after loading the view.
 }
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+}
 -(void)initUI
 {
     [self.mTableView removeFromSuperview];
@@ -42,13 +54,8 @@
     self.mTableView.tableView.canPullDown=self;
     [self.view addSubview:self.mTableView];
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //
-    
-    
-}
+
+
 -(void)initData
 {
     NSMutableDictionary *dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",[NSString stringWithFormat:@"%d",1],@"page",[NSString stringWithFormat:@"%d",1],@"type",[NSString stringWithFormat:@"%d",1000],@"num",nil];
