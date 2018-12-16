@@ -224,12 +224,10 @@
 {
     if (snder.tag==2) //匹配中心
     {
-//        MarryConrtolViewController *declar=[[MarryConrtolViewController alloc] init];
-//        [self.navigationController pushViewController:declar animated:YES];
-        MingriZhonggouHomeVC *bouns=[[MingriZhonggouHomeVC alloc] init];
-        [self.navigationController pushViewController:bouns animated:YES];
-        
-        
+        [ToolControl showHudWithResult:NO andTip:@"功能维护中"];
+        return;
+//        MingriZhonggouHomeVC *bouns=[[MingriZhonggouHomeVC alloc] init];
+//        [self.navigationController pushViewController:bouns animated:YES];
     }if (snder.tag==3)//报单中心
     {
         DeclarationViewController *declar=[[DeclarationViewController alloc] init];
