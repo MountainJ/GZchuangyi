@@ -89,7 +89,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NB2/FootButton/Controller/MyNBTabBar.m"
-            timestampString = "566626341.280576"
+            timestampString = "566628008.709077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -111,6 +111,22 @@
             startingLineNumber = "77"
             endingLineNumber = "77"
             landmarkName = "-cyclePickerView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;/MeansViewController.m"
+            timestampString = "566626618.8637559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "-initUIFrist"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
