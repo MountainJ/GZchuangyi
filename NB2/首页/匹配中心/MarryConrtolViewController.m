@@ -86,10 +86,10 @@
                     textFeid.text=[NSString stringWithFormat:@"%@元",[[arrayData objectAtIndex:0] objectForKey:@"zongpaidan"]];
                     UILabel *textlable=[bodview viewWithTag:500];
                     textlable.text=[NSString stringWithFormat:@"可参与额度：%@元",[[arrayData objectAtIndex:0] objectForKey:@"tigongedu"]];
-                    UITextField *textFeid1=[bodview viewWithTag:kFristTextfieldTag+2];
-                    textFeid1.text=[NSString stringWithFormat:@"%@",[[arrayData objectAtIndex:0] objectForKey:@"jinbi"]];
-                    UITextField *textFeid2=[bodview viewWithTag:kFristTextfieldTag+3];
-                    textFeid2.text=[NSString stringWithFormat:@"%@",[[arrayData objectAtIndex:0] objectForKey:@"yinbi"]];
+//                    UITextField *textFeid1=[bodview viewWithTag:kFristTextfieldTag+2];
+//                    textFeid1.text=[NSString stringWithFormat:@"%@",[[arrayData objectAtIndex:0] objectForKey:@"jinbi"]];
+//                    UITextField *textFeid2=[bodview viewWithTag:kFristTextfieldTag+3];
+//                    textFeid2.text=[NSString stringWithFormat:@"%@",[[arrayData objectAtIndex:0] objectForKey:@"yinbi"]];
                 }
                 
                 
@@ -180,13 +180,10 @@
     NSArray *arraytitle;
     if (sign==0)
     {
-//        arraytitle=[[NSArray alloc] initWithObjects:@"当前参与额:",@"参与金额:",@"创益金币数量:",@"创益银币数量:",@"二级密码:",@"排单周期:", nil];
-         arraytitle=[[NSArray alloc] initWithObjects:@"当前参与额:",@"参与金额:",@"创益金币数量:",@"创益银币数量:",@"二级密码:", nil];
+         arraytitle=[[NSArray alloc] initWithObjects:@"当前参与额:",@"参与金额:",@"二级密码:", nil];
     }else
     {
-//        arraytitle=[[NSArray alloc] initWithObjects:@"可用金额:",@"求助金额:",@"二级密码:", nil];
         arraytitle=[[NSArray alloc] initWithObjects:@"本金钱包:",@"红利钱包:",@"众筹金额:",@"二级密码:", nil];
-
     }
     CGFloat originY = 0.;
     for (int i=0; i<arraytitle.count; i++)
@@ -198,11 +195,9 @@
         labletitle.adjustsFontSizeToFitWidth=YES;
         labletitle.font=[UIFont systemFontOfSize:14];
         [bodview addSubview:labletitle];
-        
-//        if (i != arraytitle.count - 1) {
             UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, 50*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
             if (sign == 0) {
-                if (i==4) {
+                if (i==2) {
                     text.secureTextEntry = YES;
                 }
             }else
@@ -211,10 +206,6 @@
                     text.secureTextEntry = YES;
                 }
             }
-            if (i == 2 || i==3) {
-                text.enabled = NO;
-            }
-            //text.secureTextEntry = YES;
             text.clearButtonMode = UITextFieldViewModeWhileEditing;//清除button
             [text setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
             text.layer.masksToBounds=YES;
@@ -224,17 +215,9 @@
             text.tag=kFristTextfieldTag+i;
             text.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消自动大小写
             text.contentVerticalAlignment =UIControlContentVerticalAlignmentCenter;
-            //keywordNoTF.delegate = self;
             [text setFont:[UIFont systemFontOfSize:14]];
             [bodview addSubview:text];
-//        }
-//    else
-//        {
-//            self.cycleBtn.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, 50*(i+1)+5, SCREEN_WIDTH*0.6, 30);
-//            [bodview addSubview:self.cycleBtn];
-//            self.cycleLbl.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, 50*(i+1)+5, SCREEN_WIDTH*0.6, 30);
-//            [bodview addSubview:self.cycleLbl];
-//        }
+
         if (i==1) {
             UILabel *lable=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5,135 , SCREEN_WIDTH*0.6, 20)];
             lable.textColor=[UIColor grayColor];
@@ -286,91 +269,13 @@
         sign=1;
         //labletext.text=@"申请完成并在排队三天后，耐心等待系统随机分配受善需求";
     }
-    
-    
-//    NSArray *arraytitle;
-//    if (sign==0)
-//    {
-//        arraytitle=[[NSArray alloc] initWithObjects:@"当前参与额:",@"参与金额:",@"创益金币数量:",@"创益银币数量:",@"二级密码:",@"排单周期:", nil];
-//    }else
-//    {
-//        arraytitle=[[NSArray alloc] initWithObjects:@"可用金额:",@"求助金额:",@"二级密码:", nil];
-//    }
-//    CGFloat originY = 0.;
-//    for (int i=0; i<arraytitle.count; i++)
-//    {
-//        UILabel *labletitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 50*(i+1)+5, SCREEN_WIDTH*0.3, 30)];
-//        labletitle.textAlignment=NSTextAlignmentRight;
-//        labletitle.textColor=[UIColor grayColor];
-//        labletitle.text=[arraytitle objectAtIndex:i];
-//        labletitle.adjustsFontSizeToFitWidth=YES;
-//        labletitle.font=[UIFont systemFontOfSize:14];
-//        [bodview addSubview:labletitle];
-//        
-//        if (i != arraytitle.count - 1) {
-//            UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, 50*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
-//            if (sign == 0) {
-//                if (i==arraytitle.count - 2) {
-//                    text.secureTextEntry = YES;
-//                }
-//            }else
-//            {
-//                if (i==2) {
-//                    text.secureTextEntry = YES;
-//                }
-//            }
-//            //text.secureTextEntry = YES;
-//            text.clearButtonMode = UITextFieldViewModeWhileEditing;//清除button
-//            [text setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
-//            text.layer.masksToBounds=YES;
-//            text.layer.cornerRadius=3;
-//            text.textColor=[UIColor grayColor];
-//            text.backgroundColor=[UIColor colorWithRed:221.0/255 green:222.0/255 blue:221.0/255 alpha:1];
-//            text.tag=kFristTextfieldTag+i;
-//            text.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消自动大小写
-//            text.contentVerticalAlignment =UIControlContentVerticalAlignmentCenter;
-//            //keywordNoTF.delegate = self;
-//            [text setFont:[UIFont systemFontOfSize:14]];
-//            [bodview addSubview:text];
-//        }else
-//        {
-//            self.cycleBtn.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, 50*(i+1)+5, SCREEN_WIDTH*0.6, 30);
-//            [bodview addSubview:self.cycleBtn];
-//            self.cycleLbl.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, 50*(i+1)+5, SCREEN_WIDTH*0.6, 30);
-//            [bodview addSubview:self.cycleLbl];
-//        }
-//        if (i==1) {
-//            UILabel *lable=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5,135 , SCREEN_WIDTH*0.6, 20)];
-//            lable.textColor=[UIColor grayColor];
-//            lable.backgroundColor=[UIColor clearColor];
-//            lable.adjustsFontSizeToFitWidth=YES;
-//            lable.font=[UIFont systemFontOfSize:13];
-//            lable.tag=500;
-//            [bodview addSubview:lable];
-//        }
-//        originY = 50*(i+1)+5.;
-//    }
-//    
-//    getbut=[UIButton buttonWithType:UIButtonTypeCustom];
-//    getbut.frame=CGRectMake(SCREEN_WIDTH*0.2, originY + 50, SCREEN_WIDTH*0.6, 40);
-//    [getbut setBackgroundColor:[UIColor colorWithRed:4.0/255 green:145.0/255 blue:218.0/255 alpha:1]];
-//    [getbut setTitle:@"提交保存" forState:UIControlStateNormal];
-//    [getbut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    getbut.layer.masksToBounds=YES;
-//    getbut.layer.cornerRadius=3;
-//    bodview.userInteractionEnabled=YES;
-//    [getbut addTarget:self action:@selector(clickbao) forControlEvents:UIControlEventTouchUpInside];
-//    [bodview addSubview:getbut];
-    
 
     NSArray *arraytitle;
     if (sign==0)
     {
-//        arraytitle=[[NSArray alloc] initWithObjects:@"当前参与额:",@"参与金额:",@"创益金币数量:",@"创益银币数量:",@"二级密码:",@"排单周期:", nil];
-        arraytitle=[[NSArray alloc] initWithObjects:@"当前参与额:",@"参与金额:",@"创益金币数量:",@"创益银币数量:",@"二级密码:", nil];
+        arraytitle=[[NSArray alloc] initWithObjects:@"当前参与额:",@"参与金额:",@"二级密码:", nil];
     }else
     {
-//        arraytitle=[[NSArray alloc] initWithObjects:@"可用金额:",@"求助金额:",@"二级密码:", nil];
         arraytitle=[[NSArray alloc] initWithObjects:@"本金钱包:",@"红利钱包:",@"众筹金额:",@"二级密码:", nil];
     }
     
@@ -401,10 +306,9 @@
                 [bodview addSubview:lable];
             }
         }
-//        if (i != arraytitle.count - 1) {
             UITextField *text=[[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, fieledLabelOringY, SCREEN_WIDTH*0.6, 30)];
             if (sign == 0) {
-                if (i==4) {
+                if (i==arraytitle.count - 1) {
                     text.secureTextEntry = YES;
                 }
             }else
@@ -453,15 +357,16 @@
                 {
                     UILabel *textlable=[bodview viewWithTag:500];
                     textlable.text=[NSString stringWithFormat:@"可参与额度：%@元",[[arrayData objectAtIndex:0] objectForKey:@"tigongedu"]];
-                }else if (i == 2)
-                {
-                    text.enabled = NO;
-                    text.text = [NSString stringWithFormat:@"%@",[[arrayData objectAtIndex:0] objectForKey:@"jinbi"]];
-                }else if (i == 3)
-                {
-                    text.enabled = NO;
-                    text.text = [NSString stringWithFormat:@"%@",[[arrayData objectAtIndex:0] objectForKey:@"yinbi"]];
                 }
+//                else if (i == 2)
+//                {
+//                    text.enabled = NO;
+//                    text.text = [NSString stringWithFormat:@"%@",[[arrayData objectAtIndex:0] objectForKey:@"jinbi"]];
+//                }else if (i == 3)
+//                {
+//                    text.enabled = NO;
+//                    text.text = [NSString stringWithFormat:@"%@",[[arrayData objectAtIndex:0] objectForKey:@"yinbi"]];
+//                }
                 
             }else{
                 text.tag=120+i;
@@ -480,15 +385,6 @@
             text.contentVerticalAlignment =UIControlContentVerticalAlignmentCenter;
             [text setFont:[UIFont systemFontOfSize:14]];
             [bodview addSubview:text];
-//        }
-        
-//         if(sign == 0 && i == arraytitle.count - 1)
-//        {
-//            self.cycleBtn.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, 50*(i+1)+5, SCREEN_WIDTH*0.6, 30);
-//            [bodview addSubview:self.cycleBtn];
-//            self.cycleLbl.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, 50*(i+1)+5, SCREEN_WIDTH*0.6, 30);
-//            [bodview addSubview:self.cycleLbl];
-//        }
         originY = 50*(i+1)+5.;
         if (sign == 1) {
             originY += selectHeight;
@@ -533,15 +429,11 @@
             [ToolControl showHudWithResult:NO andTip:@"请输入正确金额"];
             return;
         }
-        UITextField *textFeid1=[bodview viewWithTag:kFristTextfieldTag + 4];
+        UITextField *textFeid1=[bodview viewWithTag:kFristTextfieldTag + 2];
         if ([textFeid1.text length]==0) {
             [ToolControl showHudWithResult:NO andTip:@"请输入二级密码"];
             return;
         }
-//        if ([self.cycleLbl.text  length] == 0) {
-//            [ToolControl showHudWithResult:NO andTip:@"请选择周期"];
-//            return;
-//        }
         
         NSString *zhouqi = @"";
         for (NSDictionary *dic in self.zhouqiArr) {
@@ -550,19 +442,13 @@
                 zhouqi = [dic objectForKey:@"typeid"];
             }
         }
-        
-//        dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",textFeid.text,@"jine",@"1",@"type",textFeid1.text,@"erpwd", zhouqi, @"zhouqi", nil];
-        
-        dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",textFeid.text,@"jine",@"1",@"type",textFeid1.text,@"erpwd", @"1", @"leixing", @"1", @"type",nil];
 
+        dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",textFeid.text,@"jine",@"1",@"type",textFeid1.text,@"erpwd", @"1", @"leixing", @"1", @"type",nil];
         textFeid=[bodview viewWithTag:kFristTextfieldTag+1];
-        
         
     }else
     {
-//        textFeid=[bodview viewWithTag:121];
         textFeid=[bodview viewWithTag:122];
-
         if ([textFeid.text floatValue]==0||[textFeid.text length]==0) {
             [ToolControl showHudWithResult:NO andTip:@"请输入金额"];
             return;
@@ -573,9 +459,7 @@
             return;
         }
         
-//        dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",textFeid.text,@"jine",@"2",@"type",textFeid1.text,@"erpwd",@"1", @"zhouqi", nil];
         dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",textFeid.text,@"jine",@"2",@"type",textFeid1.text,@"erpwd",self.selectType, @"leixing", nil];
-
     }
     [SVProgressHUD showWithStatus:@"请求中..." maskType:SVProgressHUDMaskTypeBlack];
     [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestHelp" params:dicton success:^(NSDictionary *dict) {

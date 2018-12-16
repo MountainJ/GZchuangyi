@@ -89,12 +89,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NB2/FootButton/Controller/MyNBTabBar.m"
-            timestampString = "566625231.855372"
+            timestampString = "566626341.280576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "-initWithItems:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;/MyPaidanbiViewController.m"
+            timestampString = "566625614.605296"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-cyclePickerView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
