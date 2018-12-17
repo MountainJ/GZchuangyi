@@ -43,7 +43,7 @@
 -(void)initTopView
 {
     topView = [[TopView alloc]init];
-    topView.titileTx=@"创益币转让记录";
+    topView.titileTx=@"创业币转让记录";
     topView.imgLeft=@"back_btn_n";
     topView.delegate=self;
     [self.view addSubview:topView];

@@ -148,7 +148,8 @@ static NSString *collectionCellid = @"collectionCellid";
     NSMutableDictionary *dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",[NSString stringWithFormat:@"%ld",(long)_indexPage],@"page",[NSString stringWithFormat:@"%d",10],@"num",nil];
     NSString *urlString=nil;
     if (sign==100) {
-        urlString=@"/api/requestLicaiFenghong";
+//        urlString=@"/api/requestLicaiFenghong";
+        urlString=@"/api/requestTuiguang";//2018.12·18修改为推广工资
     }else if (sign==101)
     {
         urlString=@"/api/requestQianbao";

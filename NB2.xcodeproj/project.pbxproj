@@ -1332,12 +1332,12 @@
 		5118ED321D1C30A400EC37D4 /* 报单中心 */ = {
 			isa = PBXGroup;
 			children = (
-				5118ED331D1C30A400EC37D4 /* ActivateListViewController.h */,
-				5118ED341D1C30A400EC37D4 /* ActivateListViewController.m */,
-				5118ED351D1C30A400EC37D4 /* AtiinateViewController.h */,
-				5118ED361D1C30A400EC37D4 /* AtiinateViewController.m */,
 				5118ED371D1C30A400EC37D4 /* DeclarationViewController.h */,
 				5118ED381D1C30A400EC37D4 /* DeclarationViewController.m */,
+				5118ED351D1C30A400EC37D4 /* AtiinateViewController.h */,
+				5118ED361D1C30A400EC37D4 /* AtiinateViewController.m */,
+				5118ED331D1C30A400EC37D4 /* ActivateListViewController.h */,
+				5118ED341D1C30A400EC37D4 /* ActivateListViewController.m */,
 				5118ED391D1C30A400EC37D4 /* ResgitViewController.h */,
 				5118ED3A1D1C30A400EC37D4 /* ResgitViewController.m */,
 				5118ED3B1D1C30A400EC37D4 /* ServeControlViewController.h */,

@@ -35,7 +35,7 @@ static NSString *identifier = @"JMCell";
 -(void)initTopView
 {
     topView = [[TopView alloc]init];
-    topView.titileTx=@"激活会员";
+    topView.titileTx=@"消耗创业币激活";
     topView.imgLeft=@"back_btn_n";
     topView.delegate=self;
     [self.view addSubview:topView];

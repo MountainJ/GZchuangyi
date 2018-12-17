@@ -110,8 +110,8 @@
             if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
             {
                 NSDictionary *dictionData=[[dict objectForKey:@"result"] objectAtIndex:0];
-                numTextFld.text = dictionData[@"jinbi"];
-                yinbinumTextFld.text = dictionData[@"yinbi"];
+                numTextFld.text = dictionData[@"chuangyebi"];
+//                yinbinumTextFld.text = dictionData[@"yinbi"];
             }
         }
         @catch (NSException *exception) {
@@ -147,17 +147,21 @@
     [button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button2];
     
-    NSArray *arraytitle=@[@{@"title":@"创益金币总数：",@"placeHolder":@""},
-                          @{@"title":@"创益银币总数：",@"placeHolder":@""},
+//    NSArray *arraytitle=@[@{@"title":@"创益金币总数：",@"placeHolder":@""},
+//                          @{@"title":@"创益银币总数：",@"placeHolder":@""},
+//                          @{@"title":@"转让会员账号：",@"placeHolder":@"请输入账号或手机号"},
+//                          @{@"title":@"数量：",@"placeHolder":@"请输入转让数量"},
+//                          @{@"title":@"二级密码：",@"placeHolder":@"请输入二级密码"},
+//                          @{@"title":@"身份证号码：",@"placeHolder":@"请输入身份证最后6位"},
+//                          @{@"title":@"转让类型：",@"placeHolder":@"请输入二级密码"}
+//                        ];
+    NSArray *arraytitle=@[@{@"title":@"创业币总数：",@"placeHolder":@""},
                           @{@"title":@"转让会员账号：",@"placeHolder":@"请输入账号或手机号"},
                           @{@"title":@"数量：",@"placeHolder":@"请输入转让数量"},
                           @{@"title":@"二级密码：",@"placeHolder":@"请输入二级密码"},
-                          @{@"title":@"身份证号码：",@"placeHolder":@"请输入身份证最后6位"},
-                          @{@"title":@"转让类型：",@"placeHolder":@"请输入二级密码"}
-                        ];
+                          ];
     
     CGFloat originY = 60;
-    
     for (int i=0; i<arraytitle.count; i++)
     {
         NSDictionary *dic = arraytitle[i];
@@ -173,40 +177,44 @@
             numTextFld=[[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
             numTextFld.enabled = NO;
             [self setTextFld:numTextFld];
-        }else if (i == 1) {
-            yinbinumTextFld=[[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
-            yinbinumTextFld.enabled = NO;
-            [self setTextFld:yinbinumTextFld];
-        }else if (i == 2){
+        }
+//        else if (i == 1) {
+//            yinbinumTextFld=[[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
+//            yinbinumTextFld.enabled = NO;
+//            [self setTextFld:yinbinumTextFld];
+//        }
+        else if (i == 1){
             userTextFld = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
             userTextFld.placeholder = dic[@"placeHolder"];
             [self setTextFld:userTextFld];
-        }else if (i == 3){
+        }
+        else if (i == 2){
             totalNumFld = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
             totalNumFld.placeholder = dic[@"placeHolder"];
             totalNumFld.keyboardType = UIKeyboardTypeNumberPad;
             [self setTextFld:totalNumFld];
-        }else if (i == 4){
+        }else if (i == 3){
             pwdFld = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
             pwdFld.placeholder = dic[@"placeHolder"];
             pwdFld.secureTextEntry = YES;
             [self setTextFld:pwdFld];
-        }else if (i == 5){
-            _cardFeild = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
-            _cardFeild.placeholder = dic[@"placeHolder"];
-            [self setTextFld:_cardFeild];
         }
-        else if (i == 6)
-        {
-            self.cycleBtn.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30);
-            self.cycleLbl.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30);
-            [self.view addSubview:self.cycleBtn];
-            [self.view addSubview:self.cycleLbl];
-        }
+//        else if (i == 5){
+//            _cardFeild = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30)];
+//            _cardFeild.placeholder = dic[@"placeHolder"];
+//            [self setTextFld:_cardFeild];
+//        }
+//        else if (i == 6)
+//        {
+//            self.cycleBtn.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30);
+//            self.cycleLbl.frame = CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY + 40*(i+1)+5, SCREEN_WIDTH*0.6, 30);
+//            [self.view addSubview:self.cycleBtn];
+//            [self.view addSubview:self.cycleLbl];
+//        }
         
     }
     getbut=[UIButton buttonWithType:UIButtonTypeCustom];
-    getbut.frame=CGRectMake(SCREEN_WIDTH*0.2, 350 + 40, SCREEN_WIDTH*0.6, 40);
+    getbut.frame=CGRectMake(SCREEN_WIDTH*0.2, CGRectGetMaxY(pwdFld.frame) + 50., SCREEN_WIDTH*0.6, 40);
     [getbut setBackgroundColor:[UIColor colorWithRed:4.0/255 green:145.0/255 blue:218.0/255 alpha:1]];
     [getbut setTitle:@"提交保存" forState:UIControlStateNormal];
     [getbut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -260,19 +268,25 @@
         [ToolControl showHudWithResult:NO andTip:@"请输入二级密码"];
         return;
     }
-    if (![_cardFeild.text length]) {
-        [ToolControl showHudWithResult:NO andTip:@"请输入身份证最后6位"];
-        return;
-    }
-    NSString *type = @"1";
-    if ([self.cycleLbl.text isEqualToString:@"创益银币"]) {
-        type = @"0";
-    }
+//    if (![_cardFeild.text length]) {
+//        [ToolControl showHudWithResult:NO andTip:@"请输入身份证最后6位"];
+//        return;
+//    }
+//    NSString *type = @"1";
+//    if ([self.cycleLbl.text isEqualToString:@"创益银币"]) {
+//        type = @"0";
+//    }
     
-    NSMutableDictionary *dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",userTextFld.text,@"user",totalNumFld.text,@"num",pwdFld.text,@"erpwd",type,@"type",_cardFeild.text,@"cardnum",  nil];
-    
+//    NSMutableDictionary *dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",userTextFld.text,@"user",totalNumFld.text,@"num",pwdFld.text,@"erpwd",type,@"type",_cardFeild.text,@"cardnum",  nil];
+    NSDictionary *paramDict = @{@"id":SAFE_STRING(UID),
+                                @"md5":SAFE_STRING(MD5),
+                                @"user":SAFE_STRING(userTextFld.text),
+                                @"num":SAFE_STRING(totalNumFld.text),
+                                @"erpwd":SAFE_STRING(pwdFld.text)
+                                };
     [SVProgressHUD showWithStatus:@"请求中..." maskType:SVProgressHUDMaskTypeBlack];
-    [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestChuangyibizrnew" params:dicton success:^(NSDictionary *dict) {
+    [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestChuangyebizr" params:paramDict success:^(NSDictionary *dict) {
+//    [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestChuangyibizrnew" params:dicton success:^(NSDictionary *dict) {
         [SVProgressHUD dismiss];
         @try
         {

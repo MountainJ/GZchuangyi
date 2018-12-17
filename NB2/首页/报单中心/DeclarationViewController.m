@@ -28,7 +28,7 @@
     self.view.backgroundColor=[UIColor whiteColor];
     //self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 //    arrayData=[[NSMutableArray alloc] initWithObjects:@"会员注册",@"激活会员",@"激活记录", nil];
-    arrayData=[[NSMutableArray alloc] initWithObjects:@"会员注册",@"激活会员",nil];
+    arrayData=[[NSMutableArray alloc] initWithObjects:@"会员注册",@"消耗创业币激活",nil];
 
     [self initTopView];
     [self initUI];
