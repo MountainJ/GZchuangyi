@@ -130,7 +130,11 @@ static NSString *identifier = @"JMCell";
     
     UILabel *tempL1=[[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetMaxY(tempL0.frame), SCREEN_WIDTH*0.5, 20)];
     tempL1.textColor=[UIColor colorWithWhite:0.5 alpha:1];
-    tempL1.text= [dictTable objectForKey:@"shijian"];
+    if ([dictTable[@"station"] integerValue] ==1 ) {//已经激活
+        tempL1.text=[NSString stringWithFormat:@"激活时间:%@",dictTable[@"jhshijian"]];
+    }else{//注册时间
+        tempL1.text=[NSString stringWithFormat:@"注册时间:%@",dictTable[@"shijian"]];
+    }
     [tempL1 setFont:[UIFont systemFontOfSize:12]];
     [cell addSubview:tempL1];
     
@@ -145,7 +149,8 @@ static NSString *identifier = @"JMCell";
     
     UILabel *tempL22=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(tempL2.frame), CGRectGetMaxY(tempL1.frame)+20, SCREEN_WIDTH*0.2, 20)];
     tempL22.textAlignment = NSTextAlignmentLeft;
-    tempL22.text=@"普通会员";
+//    tempL22.text=@"普通会员";
+    tempL22.text=@"";
     [tempL22 setFont:[UIFont systemFontOfSize:13]];
     [tempL22 setTextColor:[UIColor grayColor]];
     [cell addSubview:tempL22];
@@ -249,6 +254,8 @@ static NSString *identifier = @"JMCell";
     NSDictionary *dictTable=[arrayData objectAtIndex:indexPath.row];
     if ([[dictTable objectForKey:@"station"] integerValue]==0)
     {
+        //这里弹出来一个提示，是否要进行激活
+        
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请输入激活码" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         alertView.alertViewStyle=UIAlertViewStylePlainTextInput;
         [alertView show];
