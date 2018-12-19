@@ -19,6 +19,8 @@ static NSString *identifier = @"JMCell";
     NSString *user;
 }
 
+@property (nonatomic,strong) NSDictionary  *selectDict;
+
 @end
 
 @implementation AtiinateViewController
@@ -252,17 +254,22 @@ static NSString *identifier = @"JMCell";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *dictTable=[arrayData objectAtIndex:indexPath.row];
-    if ([[dictTable objectForKey:@"station"] integerValue]==0)
+    self.selectDict = dictTable;
+//    if ([[dictTable objectForKey:@"station"] integerValue]==0)
+    if ([[dictTable objectForKey:@"station"] integerValue]==1)
     {
         //这里弹出来一个提示，是否要进行激活
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请输入激活码" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        alertView.alertViewStyle=UIAlertViewStylePlainTextInput;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"确定要激活吗?" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         [alertView show];
-        UITextField *tf=[alertView textFieldAtIndex:0];
-        tf.keyboardType=UIKeyboardTypeDefault;
-        tf.placeholder=@"请输入激活码";
-        user=[dictTable objectForKey:@"user"];
+        
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请输入激活码" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//        alertView.alertViewStyle=UIAlertViewStylePlainTextInput;
+//        [alertView show];
+//        UITextField *tf=[alertView textFieldAtIndex:0];
+//        tf.keyboardType=UIKeyboardTypeDefault;
+//        tf.placeholder=@"请输入激活码";
+//        user=[dictTable objectForKey:@"user"];
        //
 
     }else
@@ -277,49 +284,82 @@ static NSString *identifier = @"JMCell";
     
     if (buttonIndex==1)
     {
-        if([alertView textFieldAtIndex:0].text.length==0)
-        {
-            [ToolControl showHudWithResult:NO andTip:@"激活码为空"];
-            return;
-        }
-        //[SVProgressHUD showWithStatus:@"验证中..." maskType:SVProgressHUDMaskTypeBlack];
-        NSDictionary *param = @{@"title":[alertView textFieldAtIndex:0].text,@"type":@"3"};
-        [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestCheckuserinfo" params:param success:^(NSDictionary *dict){
-            
-            @try
-            {
-                //[SVProgressHUD dismiss];
-                [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
-                if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
-                {
-                    UITextField *tf=[alertView textFieldAtIndex:0];
-                    [self getJihuo:tf.text logn:user];
-                }else
-                {
-                    return ;
-                }
-            }
-            @catch (NSException *exception) {
-                [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-                return ;
-            }
-            @finally {
-                
-            }
-            // [ToolControl hideHud];
-            
-        } failure:^(NSError *error) {
-            return ;
-            [ToolControl hideHud];
-            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-        }];
-
+        //新接口只需要传一个会员id过去
+        [self requestUserJihuo];
+        return;
         
+//        //以下是原接口需要的激活码
+//        if([alertView textFieldAtIndex:0].text.length==0)
+//        {
+//            [ToolControl showHudWithResult:NO andTip:@"激活码为空"];
+//            return;
+//        }
+//        //[SVProgressHUD showWithStatus:@"验证中..." maskType:SVProgressHUDMaskTypeBlack];
+//        NSDictionary *param = @{@"title":[alertView textFieldAtIndex:0].text,@"type":@"3"};
+//        [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestCheckuserinfo" params:param success:^(NSDictionary *dict){
+//
+//            @try
+//            {
+//                //[SVProgressHUD dismiss];
+//                [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
+//                if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
+//                {
+//                    UITextField *tf=[alertView textFieldAtIndex:0];
+//                    [self getJihuo:tf.text logn:user];
+//                }else
+//                {
+//                    return ;
+//                }
+//            }
+//            @catch (NSException *exception) {
+//                [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//                return ;
+//            }
+//            @finally {
+//
+//            }
+//            // [ToolControl hideHud];
+//
+//        } failure:^(NSError *error) {
+//            return ;
+//            [ToolControl hideHud];
+//            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//        }];
         
     }
 
 
 }
+
+
+- (void)requestUserJihuo
+{
+    NSDictionary *paramDict =  @{ @"id":SAFE_STRING(UID),
+                                  @"md5":SAFE_STRING(MD5),
+                                  @"tid":SAFE_STRING(self.selectDict[@"id"])
+                                  };
+    [SVProgressHUD showWithStatus:@"激活中..." maskType:SVProgressHUDMaskTypeBlack];
+    [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestJihuo" params:paramDict success:^(NSDictionary *dict) {
+        @try
+        {
+            [SVProgressHUD dismiss];
+            [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
+            if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
+            {
+                [self initData];
+            }
+            NSLog(@"%@",dict);
+        }
+        @catch (NSException *exception)
+        {
+            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+    }];
+}
+
 
 -(void)getJihuo:(NSString *)jihuooma logn:(NSString *)zhanghao
 {
@@ -353,8 +393,9 @@ static NSString *identifier = @"JMCell";
         [SVProgressHUD dismiss];
         [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
     }];
-
 }
+
+
 -(void)actionLeft
 {
     [self.navigationController popViewControllerAnimated:YES];

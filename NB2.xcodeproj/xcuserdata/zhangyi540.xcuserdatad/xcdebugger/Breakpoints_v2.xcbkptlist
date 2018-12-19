@@ -169,27 +169,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/AtiinateViewController.m"
-            timestampString = "566760727.182019"
+            timestampString = "566887707.464923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "-getJihuo:logn:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/AtiinateViewController.m"
-            timestampString = "566760727.182449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -201,11 +185,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/AtiinateViewController.m"
-            timestampString = "566760727.182735"
+            timestampString = "566887707.465268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -217,12 +201,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/AtiinateViewController.m"
-            timestampString = "566760727.18299"
+            timestampString = "566887707.465474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "-scrollView:loadWithState:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -233,12 +217,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/AtiinateViewController.m"
-            timestampString = "566760727.183239"
+            timestampString = "566887707.465669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
-            landmarkName = "-alertView:clickedButtonAtIndex:"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "-requestUserJihuo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
