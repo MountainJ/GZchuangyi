@@ -152,22 +152,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NB2/&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;/MyPaidanbiViewController.m"
-            timestampString = "566760727.181929"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-buttonClicked:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NB2/&#x9996;&#x9875;/&#x62a5;&#x5355;&#x4e2d;&#x5fc3;/AtiinateViewController.m"
             timestampString = "566887707.464923"
             startingColumnNumber = "9223372036854775807"
@@ -223,6 +207,22 @@
             startingLineNumber = "341"
             endingLineNumber = "341"
             landmarkName = "-requestUserJihuo"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NB2/&#x4e2a;&#x4eba;&#x4e2d;&#x5fc3;/PaidanRecordViewController.m"
+            timestampString = "566933994.075379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-initTopView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

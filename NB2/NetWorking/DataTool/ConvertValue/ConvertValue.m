@@ -401,7 +401,7 @@ void FreeAddresses()
 +(int)getPageNum:(NSUInteger)arrayCount :(NSInteger)numPage
 {
     int tempPageNum=0;
-    if (arrayCount%numPage==0)
+    if (arrayCount % numPage==0)
     {
         tempPageNum=(int)arrayCount/numPage+1;
     }

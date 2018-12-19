@@ -155,9 +155,9 @@
 //                          @{@"title":@"身份证号码：",@"placeHolder":@"请输入身份证最后6位"},
 //                          @{@"title":@"转让类型：",@"placeHolder":@"请输入二级密码"}
 //                        ];
-    NSArray *arraytitle=@[@{@"title":@"创业币总数：",@"placeHolder":@""},
-                          @{@"title":@"转让会员账号：",@"placeHolder":@"请输入账号或手机号"},
-                          @{@"title":@"数量：",@"placeHolder":@"请输入转让数量"},
+    NSArray *arraytitle=@[@{@"title":@"创业币数量：",@"placeHolder":@""},
+                          @{@"title":@"帐号或手机号：",@"placeHolder":@"请输入账号或手机号"},
+                          @{@"title":@"转让数量：",@"placeHolder":@"请输入转让数量"},
                           @{@"title":@"二级密码：",@"placeHolder":@"请输入二级密码"},
                           ];
     
@@ -216,7 +216,7 @@
     getbut=[UIButton buttonWithType:UIButtonTypeCustom];
     getbut.frame=CGRectMake(SCREEN_WIDTH*0.2, CGRectGetMaxY(pwdFld.frame) + 50., SCREEN_WIDTH*0.6, 40);
     [getbut setBackgroundColor:[UIColor colorWithRed:4.0/255 green:145.0/255 blue:218.0/255 alpha:1]];
-    [getbut setTitle:@"提交保存" forState:UIControlStateNormal];
+    [getbut setTitle:@"确认转让" forState:UIControlStateNormal];
     [getbut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     getbut.layer.masksToBounds=YES;
     getbut.layer.cornerRadius=3;

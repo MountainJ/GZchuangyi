@@ -8,14 +8,23 @@
 
 #import "PaidanRecordViewController.h"
 
+//#define URL_TRANSFER_HISTORY  @"/api/requestChuangyibizrlist"
+#define URL_TRANSFER_HISTORY  @"/api/requestChuangyebizrlist" //转让记录
+#define URL_ACCEPT_HISTORY  @"/api/requestChuangyebijslist" //接收记录
+#define URL_COIN_DETAIL  @"/api/requestChuangyebilist" //创业币明细
+
+
 @interface PaidanRecordViewController ()
 {
     TopView *topView;
     UITableView *workTableView;
-    NSMutableArray *arrayData;
     int tempPage;
     UIAlertView *customAlertView;
 }
+
+@property (nonatomic,assign) NSInteger  reloadIndexPage;
+@property (nonatomic,strong) NSMutableArray  *arrayData;
+
 @end
 
 @implementation PaidanRecordViewController
@@ -25,8 +34,9 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor=[UIColor whiteColor];
     [self initTopView];
+    self.reloadIndexPage = 1;
     tempPage=1;
-    arrayData=[[NSMutableArray alloc] init];
+    _arrayData=[NSMutableArray array];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,23 +65,29 @@
 
 -(void)initData
 {
-    NSMutableDictionary *dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",[NSString stringWithFormat:@"%d",1],@"page",[NSString stringWithFormat:@"%d",10],@"num",nil];
-    
     [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeBlack];
-    
-    [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestChuangyibizrlist" params:dicton success:^(NSDictionary *dict) {
+    NSDictionary *paramDict =  @{@"id":SAFE_STRING(UID),
+                                 @"md5":SAFE_STRING(MD5),
+                                 @"num":[NSString stringWithFormat:@"%d",10],
+                                 @"page":[NSString stringWithFormat:@"%ld",(long)self.reloadIndexPage]
+                                 };
+    if (self.reloadIndexPage <=1) {
+        [self.arrayData removeAllObjects];
+    }
+    [HttpTool postWithBaseURL:kBaseURL path:URL_TRANSFER_HISTORY params:paramDict success:^(NSDictionary *dict) {
         @try
         {
             [SVProgressHUD dismiss];
+            [workTableView.mj_header endRefreshing];
+            [workTableView.mj_footer endRefreshing];
+
             [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
             [workTableView stopLoadWithState:PullDownLoadState];
             if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
             {
-                //[arrayData removeAllObjects];
-                arrayData=[[dict objectForKey:@"result"] mutableCopy];
+                [self.arrayData addObjectsFromArray:[dict objectForKey:@"result"]];
                 [self initUI];
             }
-            
             NSLog(@"%@",dict);
         }
         @catch (NSException *exception)
@@ -82,6 +98,10 @@
             
         }
     } failure:^(NSError *error) {
+        
+        [workTableView.mj_header endRefreshing];
+        [workTableView.mj_footer endRefreshing];
+        
         [SVProgressHUD dismiss];
         [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
     }];
@@ -98,12 +118,20 @@
     workTableView.dataSource = self;
     workTableView.tableFooterView=[[UIView alloc] init];
     workTableView.scrollEnabled=YES;
-    workTableView.pullDelegate = self;
-    workTableView.canPullUp = YES;
-    workTableView.canPullDown=YES;
+    workTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.reloadIndexPage = 1;
+        [self initData];
+    }];
+    workTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.reloadIndexPage++;
+        [self initData];
+    }];
+//    workTableView.pullDelegate = self;
+//    workTableView.canPullUp = YES;
+//    workTableView.canPullDown=YES;
     workTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:workTableView];
-    if ([arrayData count]>10)
+    if ([self.arrayData count]>10)
     {
         [ConvertValue scrollTableToNum:YES :10 :workTableView];
     }
@@ -118,7 +146,7 @@
 //tab一页多少行
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return arrayData.count;
+    return self.arrayData.count;
 }
 //tab每行高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -133,7 +161,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    NSDictionary *dictTable=[arrayData objectAtIndex:indexPath.row];
+    NSDictionary *dictTable=[self.arrayData objectAtIndex:indexPath.row];
     
     UILabel *tempL0=[[UILabel alloc]initWithFrame:CGRectMake(5, 5, SCREEN_WIDTH/2, 20)];
     tempL0.text= @"转让会员账户：";
@@ -205,60 +233,62 @@
     cell.backgroundColor=[UIColor colorWithWhite:0.85 alpha:1];
     return cell;
 }
-- (void)scrollView:(UIScrollView*)scrollView loadWithState:(LoadState)state
-{
-    if (state == PullDownLoadState)
-    {
-        [self initData];
-    }
-    else//加载更多
-    {
-        tempPage=[ConvertValue getPageNum:[arrayData count] :10];
-        if (tempPage<=0) {
-            
-            [ToolControl showHudWithResult:NO andTip:@"暂无更多数据！"];
-            [workTableView stopLoadWithState:PullUpLoadState];
-            return;
-        }
-        NSMutableDictionary *dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",[NSString stringWithFormat:@"%d",tempPage],@"page",[NSString stringWithFormat:@"%d",10],@"num",nil];
-        
-        [ToolControl showHudWithTip:@"加载更多中..."];
-        
-        //        NSMutableString *post2 = nil;
-        //        post2=[HttpTool getDataString:dicton];
-        [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestChuangyibizrlist" params:dicton success:^(NSDictionary *dict) {
-            @try
-            {
-                
-                [workTableView stopLoadWithState:PullUpLoadState];
-                
-                if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
-                {
-                    NSMutableArray *newarray=[NSMutableArray arrayWithArray:arrayData];
-                    [newarray addObjectsFromArray:[dict objectForKey:@"result"]];
-                    arrayData=newarray;
-                    [self initUI];
-                    
-                }
-                [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
-                NSLog(@"%@",dict);
-                
-            }
-            @catch (NSException *exception)
-            {
-                [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-                
-            }
-            @finally {
-                
-            }
-        } failure:^(NSError *error) {
-            [SVProgressHUD dismiss];
-            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-        }];
-        
-    }
-}
+//- (void)scrollView:(UIScrollView*)scrollView loadWithState:(LoadState)state
+//{
+//    if (state == PullDownLoadState)
+//    {
+//        [self initData];
+//    }
+//    else//加载更多
+//    {
+//        tempPage=[ConvertValue getPageNum:[arrayData count] :10];
+//        if (tempPage<=0) {
+//
+//            [ToolControl showHudWithResult:NO andTip:@"暂无更多数据！"];
+//            [workTableView stopLoadWithState:PullUpLoadState];
+//            return;
+//        }
+//        NSDictionary *paramDict =  @{@"id":SAFE_STRING(UID),
+//                                     @"md5":SAFE_STRING(MD5),
+//                                     @"num":[NSString stringWithFormat:@"%d",10],
+//                                     @"page":[NSString stringWithFormat:@"%d",tempPage]
+//                                     };
+//        [ToolControl showHudWithTip:@"加载更多中..."];
+//        [HttpTool postWithBaseURL:kBaseURL path:URL_TRANSFER_HISTORY params:paramDict success:^(NSDictionary *dict) {
+//            @try
+//            {
+//
+//                [workTableView stopLoadWithState:PullUpLoadState];
+//
+//                if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
+//                {
+//                    NSMutableArray *newarray=[NSMutableArray arrayWithArray:arrayData];
+//                    [newarray addObjectsFromArray:[dict objectForKey:@"result"]];
+//                    arrayData=newarray;
+//                    [self initUI];
+//
+//                }
+//                [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
+//                NSLog(@"%@",dict);
+//
+//            }
+//            @catch (NSException *exception)
+//            {
+//                [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//
+//            }
+//            @finally {
+//
+//            }
+//        } failure:^(NSError *error) {
+//            [SVProgressHUD dismiss];
+//            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//        }];
+//
+//    }
+//}
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -268,5 +298,97 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+
+#pragma mark - 创业币接收记录
+
+- (void)requestAcceptedHistoryList
+{
+    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeBlack];
+    NSDictionary *paramDict =  @{@"id":SAFE_STRING(UID),
+                                 @"md5":SAFE_STRING(MD5),
+                                 @"num":[NSString stringWithFormat:@"%d",10],
+                                 @"page":[NSString stringWithFormat:@"%ld",(long)self.reloadIndexPage]
+                                 };
+    if (self.reloadIndexPage <=1) {
+        [self.arrayData removeAllObjects];
+    }
+    [HttpTool postWithBaseURL:kBaseURL path:URL_ACCEPT_HISTORY params:paramDict success:^(NSDictionary *dict) {
+        @try
+        {
+            [SVProgressHUD dismiss];
+            [workTableView.mj_header endRefreshing];
+            [workTableView.mj_footer endRefreshing];
+            
+            [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
+            [workTableView stopLoadWithState:PullDownLoadState];
+            if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
+            {
+                [self.arrayData addObjectsFromArray:[dict objectForKey:@"result"]];
+                [self initUI];
+            }
+            NSLog(@"%@",dict);
+        }
+        @catch (NSException *exception)
+        {
+            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+        }
+        @finally {
+            
+        }
+    } failure:^(NSError *error) {
+        
+        [workTableView.mj_header endRefreshing];
+        [workTableView.mj_footer endRefreshing];
+        
+        [SVProgressHUD dismiss];
+        [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+    }];
+}
+
+//创业币明细
+- (void)requestCoinDetailInfo
+{
+    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeBlack];
+    NSDictionary *paramDict =  @{@"id":SAFE_STRING(UID),
+                                 @"md5":SAFE_STRING(MD5),
+                                 @"num":[NSString stringWithFormat:@"%d",10],
+                                 @"page":[NSString stringWithFormat:@"%ld",(long)self.reloadIndexPage]
+                                 };
+    if (self.reloadIndexPage <=1) {
+        [self.arrayData removeAllObjects];
+    }
+    [HttpTool postWithBaseURL:kBaseURL path:URL_COIN_DETAIL params:paramDict success:^(NSDictionary *dict) {
+        @try
+        {
+            [SVProgressHUD dismiss];
+            [workTableView.mj_header endRefreshing];
+            [workTableView.mj_footer endRefreshing];
+            
+            [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
+            [workTableView stopLoadWithState:PullDownLoadState];
+            if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
+            {
+                [self.arrayData addObjectsFromArray:[dict objectForKey:@"result"]];
+                [self initUI];
+            }
+            NSLog(@"%@",dict);
+        }
+        @catch (NSException *exception)
+        {
+            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+        }
+        @finally {
+            
+        }
+    } failure:^(NSError *error) {
+        
+        [workTableView.mj_header endRefreshing];
+        [workTableView.mj_footer endRefreshing];
+        
+        [SVProgressHUD dismiss];
+        [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+    }];
+}
+
 
 @end
