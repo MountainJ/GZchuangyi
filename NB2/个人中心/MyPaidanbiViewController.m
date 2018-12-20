@@ -10,8 +10,9 @@
 #import "PaidanRecordViewController.h"
 #import "ToolBarButton.h"
 #import "RegistPickerView.h"
+#import "KKActionSheetView.h"
 
-@interface MyPaidanbiViewController ()<ToolBarButtonDelegate>
+@interface MyPaidanbiViewController ()<ToolBarButtonDelegate,KKActionSheetViewDelegate>
 {
     TopView *topView;
     NSMutableArray *arrayData;
@@ -135,17 +136,18 @@
     topView = [[TopView alloc]init];
     topView.titileTx=@"创业币转让";
     topView.imgLeft=@"back_btn_n";
+    topView.imgRight = @"choice";
     topView.delegate=self;
     [self.view addSubview:topView];
     [topView setTopView];
 
-    UIButton *button2=[UIButton buttonWithType:UIButtonTypeCustom];
-    [button2 setFrame:CGRectMake(SCREEN_WIDTH-70, 35+JF_TOP_ACTIVE_SPACE, 70, 20)];
-    [button2 setBackgroundColor:[UIColor clearColor]];
-    [button2 setTitle:@"记录查询" forState:UIControlStateNormal];
-    button2.titleLabel.font=[UIFont systemFontOfSize:14];
-    [button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button2];
+//    UIButton *button2=[UIButton buttonWithType:UIButtonTypeCustom];
+//    [button2 setFrame:CGRectMake(SCREEN_WIDTH-70, 35+JF_TOP_ACTIVE_SPACE, 70, 20)];
+//    [button2 setBackgroundColor:[UIColor clearColor]];
+//    [button2 setTitle:@"记录查询" forState:UIControlStateNormal];
+//    button2.titleLabel.font=[UIFont systemFontOfSize:14];
+//    [button2 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:button2];
     
 //    NSArray *arraytitle=@[@{@"title":@"创益金币总数：",@"placeHolder":@""},
 //                          @{@"title":@"创益银币总数：",@"placeHolder":@""},
@@ -239,11 +241,38 @@
     [self.view addSubview:text];
 }
 
--(void)buttonClicked:(UIButton *)sender
+//创业币相关记录界面
+//-(void)buttonClicked:(UIButton *)sender
+//{
+//    PaidanRecordViewController *number=[[PaidanRecordViewController alloc] init];
+//    [self.navigationController pushViewController:number animated:YES];
+//}
+
+- (void)actionRight
 {
+    KKActionSheetView *sheetView = [[KKActionSheetView alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"转让记录",@"接收记录",@"创业币明细",nil];
+    [sheetView showInView:self.view];
+}
+
+- (void)actionSheet:(KKActionSheetView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    ChuangyebiListType type = ChuangyebiListTypeNone;
+        if (buttonIndex == 0) {//转让记录
+            type = ChuangyebiListTypeSend;
+        } else  if (buttonIndex == 1) {//接收记录
+            type = ChuangyebiListTypeReceive;
+        }else  if (buttonIndex == 2) {//创业币明细
+            type = ChuangyebiListTypeDetail;
+        }else{
+            return;
+        }
     PaidanRecordViewController *number=[[PaidanRecordViewController alloc] init];
+    number.chuangyebiType = type;
     [self.navigationController pushViewController:number animated:YES];
 }
+
+
+
 
 -(void)actionLeft
 {

@@ -255,8 +255,8 @@ static NSString *identifier = @"JMCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *dictTable=[arrayData objectAtIndex:indexPath.row];
     self.selectDict = dictTable;
-//    if ([[dictTable objectForKey:@"station"] integerValue]==0)
-    if ([[dictTable objectForKey:@"station"] integerValue]==1)
+    if ([[dictTable objectForKey:@"station"] integerValue]==0)
+//    if ([[dictTable objectForKey:@"station"] integerValue]==1)
     {
         //这里弹出来一个提示，是否要进行激活
         

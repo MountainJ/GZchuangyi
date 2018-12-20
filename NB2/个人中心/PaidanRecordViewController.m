@@ -8,6 +8,8 @@
 
 #import "PaidanRecordViewController.h"
 
+#import "GZCoinHistoryListCell.h"
+
 //#define URL_TRANSFER_HISTORY  @"/api/requestChuangyibizrlist"
 #define URL_TRANSFER_HISTORY  @"/api/requestChuangyebizrlist" //转让记录
 #define URL_ACCEPT_HISTORY  @"/api/requestChuangyebijslist" //接收记录
@@ -53,13 +55,25 @@
 -(void)initTopView
 {
     topView = [[TopView alloc]init];
-    topView.titileTx=@"创业币转让记录";
+    NSString *title = nil;
+    switch (self.chuangyebiType) {
+        case ChuangyebiListTypeSend:
+            title = @"转让记录";
+            break;
+            case ChuangyebiListTypeReceive:
+            title = @"接收记录";
+            break;
+        case ChuangyebiListTypeDetail:
+            title = @"创业币明细";
+            break;
+        default:
+            break;
+    }
+    topView.titileTx=title;
     topView.imgLeft=@"back_btn_n";
     topView.delegate=self;
     [self.view addSubview:topView];
     [topView setTopView];
-    
-
     
 }
 
@@ -74,7 +88,8 @@
     if (self.reloadIndexPage <=1) {
         [self.arrayData removeAllObjects];
     }
-    [HttpTool postWithBaseURL:kBaseURL path:URL_TRANSFER_HISTORY params:paramDict success:^(NSDictionary *dict) {
+    NSString *requestHost =  [self configRequestHost];
+    [HttpTool postWithBaseURL:kBaseURL path:requestHost params:paramDict success:^(NSDictionary *dict) {
         @try
         {
             [SVProgressHUD dismiss];
@@ -85,7 +100,18 @@
             [workTableView stopLoadWithState:PullDownLoadState];
             if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
             {
-                [self.arrayData addObjectsFromArray:[dict objectForKey:@"result"]];
+                if (![[dict objectForKey:@"result"] count]) {
+                 [ToolControl showHudWithResult:NO andTip:@"暂无更多数据！"];
+                    return ;
+                }
+                for (NSDictionary *arrDict  in  dict[@"result"]) {
+                    GZChuangyebiModel *model = [[GZChuangyebiModel alloc] initwithDict:arrDict];
+                    if (self.chuangyebiType == ChuangyebiListTypeDetail) {
+                        model.isDetailInfo = YES;
+                    }
+                    [self.arrayData addObject:model];
+                }
+                
                 [self initUI];
             }
             NSLog(@"%@",dict);
@@ -105,15 +131,32 @@
         [SVProgressHUD dismiss];
         [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
     }];
-    
-    
+}
+
+- (NSString *)configRequestHost
+{
+    switch (self.chuangyebiType) {
+        case ChuangyebiListTypeSend:
+            return URL_TRANSFER_HISTORY;
+            break;
+        case ChuangyebiListTypeReceive:
+            return URL_ACCEPT_HISTORY;
+            break;
+        case ChuangyebiListTypeDetail:
+            return URL_COIN_DETAIL;
+            break;
+            
+        default:
+            return @"";
+            break;
+    }
 }
 
 -(void)initUI
 {
     [workTableView removeFromSuperview];
-    workTableView = [[UITableView alloc] initWithFrame:CGRectMake(0 ,topView.frame.origin.y+topView.frame.size.height+5 ,SCREEN_WIDTH ,SCREEN_HEIGHT-CGRectGetMaxY(topView.frame)-5)];
-    workTableView.backgroundColor = [UIColor clearColor];
+    workTableView = [[UITableView alloc] initWithFrame:CGRectMake(0 ,topView.frame.origin.y+topView.frame.size.height+5 ,SCREEN_WIDTH ,SCREEN_HEIGHT-CGRectGetMaxY(topView.frame)-5) style:UITableViewStyleGrouped];
+    workTableView.backgroundColor = [UIColor whiteColor];
     workTableView.delegate = self;
     workTableView.dataSource = self;
     workTableView.tableFooterView=[[UIView alloc] init];
@@ -141,23 +184,59 @@
 //tab数量1
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.arrayData.count;
 }
 //tab一页多少行
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.arrayData.count;
+    return 1;
 }
 //tab每行高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 90;
-    
+    return 100.;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 5.f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return [UIView new];
 }
 
 //tab每行的赋值
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (self.chuangyebiType == ChuangyebiListTypeReceive || self.chuangyebiType == ChuangyebiListTypeSend) {
+        static NSString *chuangyiCellid = @"chuangyiCellid";
+        GZCoinHistoryListCell *cell = [tableView dequeueReusableCellWithIdentifier:chuangyiCellid];
+        if (!cell) {
+            cell = [[GZCoinHistoryListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:chuangyiCellid];
+        }
+        GZChuangyebiModel *model = [self.arrayData objectAtCheckIndex:indexPath.section];
+        cell.model = model;
+        return cell;
+    }else if (self.chuangyebiType == ChuangyebiListTypeDetail){
+        static NSString *coindetailCellid = @"coindetailCellid";
+        GZCoinHistoryListCell *cell = [tableView dequeueReusableCellWithIdentifier:coindetailCellid];
+        if (!cell) {
+            cell = [[GZCoinHistoryListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:coindetailCellid];
+        }
+        GZChuangyebiModel *model = [self.arrayData objectAtCheckIndex:indexPath.section];
+        cell.model = model;
+        return cell;
+    }else{
+        static NSString *defaultCellid = @"defaultCellid";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:defaultCellid];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultCellid];
+        }
+        return cell;
+    }
+ 
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -299,96 +378,96 @@
     
 }
 
-#pragma mark - 创业币接收记录
-
-- (void)requestAcceptedHistoryList
-{
-    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeBlack];
-    NSDictionary *paramDict =  @{@"id":SAFE_STRING(UID),
-                                 @"md5":SAFE_STRING(MD5),
-                                 @"num":[NSString stringWithFormat:@"%d",10],
-                                 @"page":[NSString stringWithFormat:@"%ld",(long)self.reloadIndexPage]
-                                 };
-    if (self.reloadIndexPage <=1) {
-        [self.arrayData removeAllObjects];
-    }
-    [HttpTool postWithBaseURL:kBaseURL path:URL_ACCEPT_HISTORY params:paramDict success:^(NSDictionary *dict) {
-        @try
-        {
-            [SVProgressHUD dismiss];
-            [workTableView.mj_header endRefreshing];
-            [workTableView.mj_footer endRefreshing];
-            
-            [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
-            [workTableView stopLoadWithState:PullDownLoadState];
-            if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
-            {
-                [self.arrayData addObjectsFromArray:[dict objectForKey:@"result"]];
-                [self initUI];
-            }
-            NSLog(@"%@",dict);
-        }
-        @catch (NSException *exception)
-        {
-            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-        }
-        @finally {
-            
-        }
-    } failure:^(NSError *error) {
-        
-        [workTableView.mj_header endRefreshing];
-        [workTableView.mj_footer endRefreshing];
-        
-        [SVProgressHUD dismiss];
-        [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-    }];
-}
-
-//创业币明细
-- (void)requestCoinDetailInfo
-{
-    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeBlack];
-    NSDictionary *paramDict =  @{@"id":SAFE_STRING(UID),
-                                 @"md5":SAFE_STRING(MD5),
-                                 @"num":[NSString stringWithFormat:@"%d",10],
-                                 @"page":[NSString stringWithFormat:@"%ld",(long)self.reloadIndexPage]
-                                 };
-    if (self.reloadIndexPage <=1) {
-        [self.arrayData removeAllObjects];
-    }
-    [HttpTool postWithBaseURL:kBaseURL path:URL_COIN_DETAIL params:paramDict success:^(NSDictionary *dict) {
-        @try
-        {
-            [SVProgressHUD dismiss];
-            [workTableView.mj_header endRefreshing];
-            [workTableView.mj_footer endRefreshing];
-            
-            [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
-            [workTableView stopLoadWithState:PullDownLoadState];
-            if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
-            {
-                [self.arrayData addObjectsFromArray:[dict objectForKey:@"result"]];
-                [self initUI];
-            }
-            NSLog(@"%@",dict);
-        }
-        @catch (NSException *exception)
-        {
-            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-        }
-        @finally {
-            
-        }
-    } failure:^(NSError *error) {
-        
-        [workTableView.mj_header endRefreshing];
-        [workTableView.mj_footer endRefreshing];
-        
-        [SVProgressHUD dismiss];
-        [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-    }];
-}
+//#pragma mark - 创业币接收记录
+//
+//- (void)requestAcceptedHistoryList
+//{
+//    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeBlack];
+//    NSDictionary *paramDict =  @{@"id":SAFE_STRING(UID),
+//                                 @"md5":SAFE_STRING(MD5),
+//                                 @"num":[NSString stringWithFormat:@"%d",10],
+//                                 @"page":[NSString stringWithFormat:@"%ld",(long)self.reloadIndexPage]
+//                                 };
+//    if (self.reloadIndexPage <=1) {
+//        [self.arrayData removeAllObjects];
+//    }
+//    [HttpTool postWithBaseURL:kBaseURL path:URL_ACCEPT_HISTORY params:paramDict success:^(NSDictionary *dict) {
+//        @try
+//        {
+//            [SVProgressHUD dismiss];
+//            [workTableView.mj_header endRefreshing];
+//            [workTableView.mj_footer endRefreshing];
+//
+//            [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
+//            [workTableView stopLoadWithState:PullDownLoadState];
+//            if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
+//            {
+//                [self.arrayData addObjectsFromArray:[dict objectForKey:@"result"]];
+//                [self initUI];
+//            }
+//            NSLog(@"%@",dict);
+//        }
+//        @catch (NSException *exception)
+//        {
+//            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//        }
+//        @finally {
+//
+//        }
+//    } failure:^(NSError *error) {
+//
+//        [workTableView.mj_header endRefreshing];
+//        [workTableView.mj_footer endRefreshing];
+//
+//        [SVProgressHUD dismiss];
+//        [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//    }];
+//}
+//
+////创业币明细
+//- (void)requestCoinDetailInfo
+//{
+//    [SVProgressHUD showWithStatus:@"加载中..." maskType:SVProgressHUDMaskTypeBlack];
+//    NSDictionary *paramDict =  @{@"id":SAFE_STRING(UID),
+//                                 @"md5":SAFE_STRING(MD5),
+//                                 @"num":[NSString stringWithFormat:@"%d",10],
+//                                 @"page":[NSString stringWithFormat:@"%ld",(long)self.reloadIndexPage]
+//                                 };
+//    if (self.reloadIndexPage <=1) {
+//        [self.arrayData removeAllObjects];
+//    }
+//    [HttpTool postWithBaseURL:kBaseURL path:URL_COIN_DETAIL params:paramDict success:^(NSDictionary *dict) {
+//        @try
+//        {
+//            [SVProgressHUD dismiss];
+//            [workTableView.mj_header endRefreshing];
+//            [workTableView.mj_footer endRefreshing];
+//
+//            [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
+//            [workTableView stopLoadWithState:PullDownLoadState];
+//            if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
+//            {
+//                [self.arrayData addObjectsFromArray:[dict objectForKey:@"result"]];
+//                [self initUI];
+//            }
+//            NSLog(@"%@",dict);
+//        }
+//        @catch (NSException *exception)
+//        {
+//            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//        }
+//        @finally {
+//
+//        }
+//    } failure:^(NSError *error) {
+//
+//        [workTableView.mj_header endRefreshing];
+//        [workTableView.mj_footer endRefreshing];
+//
+//        [SVProgressHUD dismiss];
+//        [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//    }];
+//}
 
 
 @end

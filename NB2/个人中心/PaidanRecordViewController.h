@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger,ChuangyebiListType)
+{
+    ChuangyebiListTypeNone  = 0,
+    ChuangyebiListTypeSend ,   //转让
+    ChuangyebiListTypeReceive, //接受
+    ChuangyebiListTypeDetail   //详细
+};
+
 @interface PaidanRecordViewController : UIViewController<TopViewDelegate,UITableViewDelegate,UITableViewDataSource,PullDelegate>
+
+@property (nonatomic,assign) ChuangyebiListType  chuangyebiType;
+
 
 @end

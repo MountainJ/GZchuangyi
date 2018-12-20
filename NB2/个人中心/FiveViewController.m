@@ -31,7 +31,8 @@
 
 //    arrayData=[[NSMutableArray alloc] initWithObjects:@"我的激活码",@"我的创益币",@"我的账户",@"资料管理",@"修改密码",@"推荐结构", nil];
     
-    arrayData=[[NSMutableArray alloc] initWithObjects:@"我的创业币",@"我的账户",@"资料管理",@"修改密码",nil];
+//    arrayData=[[NSMutableArray alloc] initWithObjects:@"我的创业币",@"我的账户",@"资料管理",@"修改密码",nil];
+    arrayData=[[NSMutableArray alloc] initWithObjects:@"我的创业币",@"众购转换",@"我的账户",@"资料管理",@"修改密码",nil];
 
     [self initTopView];
     [self initUI];
@@ -123,22 +124,26 @@
 //        NumberViewController *number=[[NumberViewController alloc] init];
 //        [self.navigationController pushViewController:number animated:YES];
 //    }
-    if (indexPath.row==0)//我的创意币
+    if (indexPath.row==0)//我的创业币
     {
         MyPaidanbiViewController *number=[[MyPaidanbiViewController alloc] init];
         [self.navigationController pushViewController:number animated:YES];
     }
-    if (indexPath.row==1)//我的账户
+#warning doing...
+    if (indexPath.row==1)//众购转换
+    {
+    }
+    if (indexPath.row==2)//我的账户
     {
          MyAccountInfoViewController *number=[[MyAccountInfoViewController alloc] init];
         [self.navigationController pushViewController:number animated:YES];
     }
-    if (indexPath.row==2)//资料管理
+    if (indexPath.row==3)//资料管理
     {
         MeansViewController *number=[[MeansViewController alloc] init];
        [self.navigationController pushViewController:number animated:YES];
     }
-    if (indexPath.row==3)//修改密码
+    if (indexPath.row==4)//修改密码
     {
         AlterViewController *number=[[AlterViewController alloc] init];
         [self.navigationController pushViewController:number animated:YES];
