@@ -85,8 +85,8 @@
     [self.userLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(5.);
         make.top.mas_equalTo(self.contentView.mas_top).offset(0.);
-        make.width.mas_equalTo(self.bounds.size.width).multipliedBy(0.6);
-        make.height.mas_equalTo(KKFitScreen(50));
+        make.width.mas_equalTo(self.contentView.mas_width).multipliedBy(0.6);
+        make.height.mas_equalTo(KKFitScreen(70));
     }];
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {

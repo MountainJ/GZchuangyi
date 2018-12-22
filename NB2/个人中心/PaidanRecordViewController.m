@@ -156,7 +156,7 @@
 {
     [workTableView removeFromSuperview];
     workTableView = [[UITableView alloc] initWithFrame:CGRectMake(0 ,topView.frame.origin.y+topView.frame.size.height+5 ,SCREEN_WIDTH ,SCREEN_HEIGHT-CGRectGetMaxY(topView.frame)-5) style:UITableViewStyleGrouped];
-    workTableView.backgroundColor = [UIColor whiteColor];
+    workTableView.backgroundColor = COLOR_RGB(238, 238, 238);
     workTableView.delegate = self;
     workTableView.dataSource = self;
     workTableView.tableFooterView=[[UIView alloc] init];
@@ -194,7 +194,7 @@
 //tab每行高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 100.;
+    return 105.;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

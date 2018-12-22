@@ -175,29 +175,29 @@
             [cell addSubview:tempL22];
             cell.selectedBackgroundView.backgroundColor = [UIColor clearColor];
             //2018.10.20 jay 根据station判断是添加一个转股按钮，还是添加一个转股+转理财按钮，还是啥都不添加
-            if ([self.diction[@"station"] integerValue] == 4 && !self.didChangeState) {//冻结期,添加一个转股按钮
-                UIButton *zhuanguBtn = [UIButton buttonWithFrame:CGRectMake(CGRectGetMaxX(tempL2.frame)+35, CGRectGetMaxY(tempL0.frame), 50.f, CGRectGetHeight(tempL2.frame)) backGroundColor:COLOR_STATUS_NAV_BAR_BACK textColor:[UIColor whiteColor] clickAction:@selector(startZhuanguAction) clickTarget:self addToView:cell buttonText:@"转股"];
-                zhuanguBtn.titleLabel.font = [UIFont systemFontOfSize:14.];
-                zhuanguBtn.layer.cornerRadius = 10.f;
-                zhuanguBtn.layer.masksToBounds = YES;
-                zhuanguBtn.tag = ZHUANGU_TAG;
-                
-            }else if ([self.diction[@"station"] integerValue] == 10 && !self.didChangeState )//冻结中，转股+转理财两个按钮
-            {
-                UIButton *zhuanguBtn = [UIButton buttonWithFrame:CGRectMake(CGRectGetMaxX(tempL2.frame)+35, CGRectGetMaxY(tempL0.frame), 50.f, CGRectGetHeight(tempL2.frame)) backGroundColor:COLOR_STATUS_NAV_BAR_BACK textColor:[UIColor whiteColor] clickAction:@selector(startZhuanguAction) clickTarget:self addToView:cell buttonText:@"转股"];
-                zhuanguBtn.titleLabel.font = [UIFont systemFontOfSize:14.];
-                zhuanguBtn.layer.cornerRadius = 10.f;
-                zhuanguBtn.layer.masksToBounds = YES;
-                zhuanguBtn.tag = ZHUANGU_TAG;
-
-                UIButton *zhuanlicaiBtn = [UIButton buttonWithFrame:CGRectMake(CGRectGetMaxX(zhuanguBtn.frame)+10, CGRectGetMinY(zhuanguBtn.frame), CGRectGetWidth(zhuanguBtn.frame)+10., CGRectGetHeight(zhuanguBtn.frame)) backGroundColor:COLOR_STATUS_NAV_BAR_BACK textColor:[UIColor whiteColor] clickAction:@selector(startZhuanlicaiAction) clickTarget:self addToView:cell buttonText:@"转理财"];
-                zhuanlicaiBtn.titleLabel.font = [UIFont systemFontOfSize:14.];
-                zhuanlicaiBtn.layer.cornerRadius = 10.f;
-                zhuanlicaiBtn.layer.masksToBounds = YES;
-                zhuanlicaiBtn.tag = ZHUANLICAI_TAG;
-
-
-            }
+//            if ([self.diction[@"station"] integerValue] == 4 && !self.didChangeState) {//冻结期,添加一个转股按钮
+//                UIButton *zhuanguBtn = [UIButton buttonWithFrame:CGRectMake(CGRectGetMaxX(tempL2.frame)+35, CGRectGetMaxY(tempL0.frame), 50.f, CGRectGetHeight(tempL2.frame)) backGroundColor:COLOR_STATUS_NAV_BAR_BACK textColor:[UIColor whiteColor] clickAction:@selector(startZhuanguAction) clickTarget:self addToView:cell buttonText:@"转股"];
+//                zhuanguBtn.titleLabel.font = [UIFont systemFontOfSize:14.];
+//                zhuanguBtn.layer.cornerRadius = 10.f;
+//                zhuanguBtn.layer.masksToBounds = YES;
+//                zhuanguBtn.tag = ZHUANGU_TAG;
+//
+//            }else if ([self.diction[@"station"] integerValue] == 10 && !self.didChangeState )//冻结中，转股+转理财两个按钮
+//            {
+//                UIButton *zhuanguBtn = [UIButton buttonWithFrame:CGRectMake(CGRectGetMaxX(tempL2.frame)+35, CGRectGetMaxY(tempL0.frame), 50.f, CGRectGetHeight(tempL2.frame)) backGroundColor:COLOR_STATUS_NAV_BAR_BACK textColor:[UIColor whiteColor] clickAction:@selector(startZhuanguAction) clickTarget:self addToView:cell buttonText:@"转股"];
+//                zhuanguBtn.titleLabel.font = [UIFont systemFontOfSize:14.];
+//                zhuanguBtn.layer.cornerRadius = 10.f;
+//                zhuanguBtn.layer.masksToBounds = YES;
+//                zhuanguBtn.tag = ZHUANGU_TAG;
+//
+//                UIButton *zhuanlicaiBtn = [UIButton buttonWithFrame:CGRectMake(CGRectGetMaxX(zhuanguBtn.frame)+10, CGRectGetMinY(zhuanguBtn.frame), CGRectGetWidth(zhuanguBtn.frame)+10., CGRectGetHeight(zhuanguBtn.frame)) backGroundColor:COLOR_STATUS_NAV_BAR_BACK textColor:[UIColor whiteColor] clickAction:@selector(startZhuanlicaiAction) clickTarget:self addToView:cell buttonText:@"转理财"];
+//                zhuanlicaiBtn.titleLabel.font = [UIFont systemFontOfSize:14.];
+//                zhuanlicaiBtn.layer.cornerRadius = 10.f;
+//                zhuanlicaiBtn.layer.masksToBounds = YES;
+//                zhuanlicaiBtn.tag = ZHUANLICAI_TAG;
+//
+//
+//            }
         }else if(indexPath.row<=arrayData.count&&indexPath.row>0){
             UILabel *tempL0=[[UILabel alloc]init];
             tempL0.text=[array objectAtIndex:indexPath.row-1];
@@ -386,44 +386,44 @@
 //转股操作
 - (void)startZhuanguAction
 {
-    //提示语句更改
-    NSString *message = nil;
-    if ([self.diction[@"station"] integerValue] == 10)//冻结中，转股+转理财两个按钮
-    {
-        message = @"" ;
-    }else if ([self.diction[@"station"] integerValue] == 4){ //冻结期
-        message = @"转股后,该订单将无法分红和解冻,无法还原,请谨慎操作!" ;
-    }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定对该订单转股吗?" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    [alert addAction:cancel];
-    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self requestNetWorkDataWiNetHostType:@"requestZhuangu"];
-    }];
-    [alert addAction:sure];
-    
-    NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:message];
-    [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, message.length)];
-    [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.] range:NSMakeRange(0, message.length)];
-    [alert setValue:alertControllerMessageStr forKey:@"attributedMessage"];
-
-    [self presentViewController:alert animated:YES completion:nil];
+//    //提示语句更改
+//    NSString *message = nil;
+//    if ([self.diction[@"station"] integerValue] == 10)//冻结中，转股+转理财两个按钮
+//    {
+//        message = @"" ;
+//    }else if ([self.diction[@"station"] integerValue] == 4){ //冻结期
+//        message = @"转股后,该订单将无法分红和解冻,无法还原,请谨慎操作!" ;
+//    }
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定对该订单转股吗?" message:message preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//    }];
+//    [alert addAction:cancel];
+//    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [self requestNetWorkDataWiNetHostType:@"requestZhuangu"];
+//    }];
+//    [alert addAction:sure];
+//    
+//    NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:message];
+//    [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, message.length)];
+//    [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.] range:NSMakeRange(0, message.length)];
+//    [alert setValue:alertControllerMessageStr forKey:@"attributedMessage"];
+//
+//    [self presentViewController:alert animated:YES completion:nil];
     
 }
 //转理财操作
 - (void)startZhuanlicaiAction
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定对该订单转理财吗？" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    [alert addAction:cancel];
-    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self requestNetWorkDataWiNetHostType:@"requestZhuanlicai"];
-    }];
-    [alert addAction:sure];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定对该订单转理财吗？" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//    }];
+//    [alert addAction:cancel];
+//    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [self requestNetWorkDataWiNetHostType:@"requestZhuanlicai"];
+//    }];
+//    [alert addAction:sure];
+//
+//    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)requestNetWorkDataWiNetHostType:(NSString *)hostType
