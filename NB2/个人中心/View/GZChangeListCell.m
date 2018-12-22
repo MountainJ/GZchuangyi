@@ -139,6 +139,17 @@
 - (void)setModel:(GZChangeOrderModel *)model
 {
     _model = model;
+    if (model.recordFlag) {//这里显示的历史记录页面
+        [self.userLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(KKFitScreen(80));
+        }];
+        self.userLabel.text = [NSString stringWithFormat:@"订单号:%@",model.orderid];
+        self.nameLabel.text = [NSString stringWithFormat:@"提交金额:%@",model.jine];
+        self.phoneLabel.text = [NSString stringWithFormat:@"转换时间:%@",model.shijian];
+        self.numberLabel.text  = [NSString stringWithFormat:@"转换金额:%@",model.num];
+        return;
+    }
+    //这里显示转换记录
     if (model.station.integerValue  == 1) {//已经转换
         [self.changeBtn setTitle:@"已转换" forState:UIControlStateNormal];
         [self.changeBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
@@ -164,5 +175,10 @@
     }
 }
 
+- (void)setActionBtnHidden:(BOOL)actionBtnHidden
+{
+    _actionBtnHidden = actionBtnHidden;
+    self.changeBtn.hidden = actionBtnHidden;
+}
 
 @end

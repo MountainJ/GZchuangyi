@@ -24,7 +24,7 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20 + NAV_BAR_HEIGHT + JF_TOP_ACTIVE_SPACE, SCREEN_WIDTH, SCREEN_HEIGHT - (20 + NAV_BAR_HEIGHT + JF_TOP_ACTIVE_SPACE)) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20 + NAV_BAR_HEIGHT + JF_TOP_ACTIVE_SPACE, SCREEN_WIDTH, SCREEN_HEIGHT - (20 + NAV_BAR_HEIGHT + JF_TOP_ACTIVE_SPACE)) style:UITableViewStyleGrouped];
         _tableView.delegate  = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = COLOR_LIGHTGRAY_BACK;
@@ -45,8 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.topView.titileTx = @"众购转换";
-    self.topView.buttonRB =@"记录查询";
+    self.topView.titileTx = @"转换记录";
     [self.topView setTopView];
     self.dataSource = [NSMutableArray array];
     [self dataRequest];
@@ -81,6 +80,7 @@
             }
             for (NSDictionary *arrDict  in  dict[@"result"]) {
                 GZChangeOrderModel *model =[[GZChangeOrderModel alloc] initwithDict:arrDict];
+                model.recordFlag = YES;
                 [self.dataSource addObject:model];
             }
             [self.tableView reloadData];
@@ -112,7 +112,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return KKFitScreen(50);
+    return KKFitScreen(30);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -122,7 +122,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return KKFitScreen(220.);
+    return KKFitScreen(170.);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -135,6 +135,7 @@
     }
     GZChangeOrderModel *model = [self.dataSource objectAtIndex:indexPath.section];
     cell.model = model;
+    cell.actionBtnHidden = YES;
     return cell;
 }
 

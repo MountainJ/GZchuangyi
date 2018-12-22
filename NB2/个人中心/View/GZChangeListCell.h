@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) GZChangeOrderModel  *model;
 @property (nonatomic,weak) id <GZChangeListCellDelegate> delegate;
 
+@property (nonatomic,assign) BOOL  actionBtnHidden;
+
 
 @end
 
