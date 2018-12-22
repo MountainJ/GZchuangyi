@@ -27,7 +27,9 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
     //self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    arrayData=[[NSMutableArray alloc] initWithObjects:@"会员注册",@"激活会员",@"激活记录", nil];
+//    arrayData=[[NSMutableArray alloc] initWithObjects:@"会员注册",@"激活会员",@"激活记录", nil];
+    arrayData=[[NSMutableArray alloc] initWithObjects:@"会员注册",@"消耗创业币激活",nil];
+
     [self initTopView];
     [self initUI];
     
@@ -115,21 +117,22 @@
         AtiinateViewController *resgit=[[AtiinateViewController alloc] init];
         [self.navigationController pushViewController:resgit animated:YES];
         
-    }if (indexPath.row==2)
-    {
-        ActivateListViewController *resgit=[[ActivateListViewController alloc] init];
-        [self.navigationController pushViewController:resgit animated:YES];
-        
-    }if (indexPath.row==3)
-    {
-        ServeControlViewController *resgit=[[ServeControlViewController alloc] init];
-        [self.navigationController pushViewController:resgit animated:YES];
-        
-    }if (indexPath.row==4)
-    {
-        SubordinceViewController *resgit=[[SubordinceViewController alloc] init];
-        [self.navigationController pushViewController:resgit animated:YES];
     }
+//    if (indexPath.row==2)
+//    {
+//        ActivateListViewController *resgit=[[ActivateListViewController alloc] init];
+//        [self.navigationController pushViewController:resgit animated:YES];
+//        
+//    }if (indexPath.row==3)
+//    {
+//        ServeControlViewController *resgit=[[ServeControlViewController alloc] init];
+//        [self.navigationController pushViewController:resgit animated:YES];
+//        
+//    }if (indexPath.row==4)
+//    {
+//        SubordinceViewController *resgit=[[SubordinceViewController alloc] init];
+//        [self.navigationController pushViewController:resgit animated:YES];
+//    }
 }
 -(void)actionRight
 {

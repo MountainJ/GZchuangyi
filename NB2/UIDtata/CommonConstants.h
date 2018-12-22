@@ -48,7 +48,7 @@ space = par;\
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define HEIGHT_MENU_VIEW ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 ? 45 : 65)
 
-#define TAB_BAR_HEIGHT  KKFitScreen(106)
+#define TAB_BAR_HEIGHT  (49. + JF_BOTTOM_SPACE)
 
 #define APP_STATUS_BAR_HEIGHT  (20. + JF_TOP_ACTIVE_SPACE)
 

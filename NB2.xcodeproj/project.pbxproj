@@ -270,6 +270,14 @@
 		64E85A9F217B62BC00A3D3E0 /* ic_station_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E85A9C217B62BB00A3D3E0 /* ic_station_11.png */; };
 		64E85AA0217B62BC00A3D3E0 /* ic_station_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E85A9D217B62BB00A3D3E0 /* ic_station_10.png */; };
 		64E85AA1217B62BC00A3D3E0 /* ic_station_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E85A9E217B62BC00A3D3E0 /* ic_station_9.png */; };
+		A0346D0A21C644F8006FDF9E /* UIButton+PASEExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = A0346D0921C644F8006FDF9E /* UIButton+PASEExtra.m */; };
+		A05DC04321CBFC560041E36B /* GZChuangyebiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A05DC04221CBFC560041E36B /* GZChuangyebiModel.m */; };
+		A05DC04621CBFEBB0041E36B /* GZCoinHistoryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05DC04521CBFEBB0041E36B /* GZCoinHistoryListCell.m */; };
+		A05DC04921CBFED50041E36B /* GZCoinDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05DC04821CBFED50041E36B /* GZCoinDetailCell.m */; };
+		A0A0507B21CE706400F903DB /* GZZhunahuanListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0507A21CE706400F903DB /* GZZhunahuanListController.m */; };
+		A0A0507E21CE71BF00F903DB /* GZZhuanhuanHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0507D21CE71BF00F903DB /* GZZhuanhuanHistoryController.m */; };
+		A0A0508121CE76DB00F903DB /* GZChangeOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0508021CE76DB00F903DB /* GZChangeOrderModel.m */; };
+		A0A0508421CE773E00F903DB /* GZChangeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0508321CE773E00F903DB /* GZChangeListCell.m */; };
 		BF44E8711E7560810091D9C9 /* MyPaidanbiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44E8701E7560810091D9C9 /* MyPaidanbiViewController.m */; };
 		BF44E8741E7569820091D9C9 /* PaidanRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44E8731E7569820091D9C9 /* PaidanRecordViewController.m */; };
 		BF44E8761E7584ED0091D9C9 /* index.png in Resources */ = {isa = PBXBuildFile; fileRef = BF44E8751E7584ED0091D9C9 /* index.png */; };
@@ -758,6 +766,22 @@
 		64E85A9C217B62BB00A3D3E0 /* ic_station_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_station_11.png; sourceTree = "<group>"; };
 		64E85A9D217B62BB00A3D3E0 /* ic_station_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_station_10.png; sourceTree = "<group>"; };
 		64E85A9E217B62BC00A3D3E0 /* ic_station_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_station_9.png; sourceTree = "<group>"; };
+		A0346D0821C644F8006FDF9E /* UIButton+PASEExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+PASEExtra.h"; sourceTree = "<group>"; };
+		A0346D0921C644F8006FDF9E /* UIButton+PASEExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+PASEExtra.m"; sourceTree = "<group>"; };
+		A05DC04121CBFC560041E36B /* GZChuangyebiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZChuangyebiModel.h; sourceTree = "<group>"; };
+		A05DC04221CBFC560041E36B /* GZChuangyebiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZChuangyebiModel.m; sourceTree = "<group>"; };
+		A05DC04421CBFEBB0041E36B /* GZCoinHistoryListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZCoinHistoryListCell.h; sourceTree = "<group>"; };
+		A05DC04521CBFEBB0041E36B /* GZCoinHistoryListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZCoinHistoryListCell.m; sourceTree = "<group>"; };
+		A05DC04721CBFED50041E36B /* GZCoinDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZCoinDetailCell.h; sourceTree = "<group>"; };
+		A05DC04821CBFED50041E36B /* GZCoinDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZCoinDetailCell.m; sourceTree = "<group>"; };
+		A0A0507921CE706400F903DB /* GZZhunahuanListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZZhunahuanListController.h; sourceTree = "<group>"; };
+		A0A0507A21CE706400F903DB /* GZZhunahuanListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZZhunahuanListController.m; sourceTree = "<group>"; };
+		A0A0507C21CE71BF00F903DB /* GZZhuanhuanHistoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZZhuanhuanHistoryController.h; sourceTree = "<group>"; };
+		A0A0507D21CE71BF00F903DB /* GZZhuanhuanHistoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZZhuanhuanHistoryController.m; sourceTree = "<group>"; };
+		A0A0507F21CE76DB00F903DB /* GZChangeOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZChangeOrderModel.h; sourceTree = "<group>"; };
+		A0A0508021CE76DB00F903DB /* GZChangeOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZChangeOrderModel.m; sourceTree = "<group>"; };
+		A0A0508221CE773E00F903DB /* GZChangeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZChangeListCell.h; sourceTree = "<group>"; };
+		A0A0508321CE773E00F903DB /* GZChangeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZChangeListCell.m; sourceTree = "<group>"; };
 		BF44E86F1E7560810091D9C9 /* MyPaidanbiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPaidanbiViewController.h; sourceTree = "<group>"; };
 		BF44E8701E7560810091D9C9 /* MyPaidanbiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPaidanbiViewController.m; sourceTree = "<group>"; };
 		BF44E8721E7569820091D9C9 /* PaidanRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaidanRecordViewController.h; sourceTree = "<group>"; };
@@ -805,6 +829,7 @@
 				5118EC431D1C30A400EC37D4 /* AppDelegate.h */,
 				5118EC441D1C30A400EC37D4 /* AppDelegate.m */,
 				5118EC451D1C30A400EC37D4 /* InfoPlist.strings */,
+				5118ED181D1C30A400EC37D4 /* 首页 */,
 				5118EC471D1C30A400EC37D4 /* FootButton */,
 				5118EC5C1D1C30A400EC37D4 /* ImageViewFile */,
 				5118EC811D1C30A400EC37D4 /* main.m */,
@@ -820,7 +845,6 @@
 				5118ED0F1D1C30A400EC37D4 /* 系统公告 */,
 				5118ED121D1C30A400EC37D4 /* 系统消息 */,
 				5118ED151D1C30A400EC37D4 /* 系统设置 */,
-				5118ED181D1C30A400EC37D4 /* 首页 */,
 			);
 			path = NB2;
 			sourceTree = "<group>";
@@ -1211,6 +1235,9 @@
 		5118ED001D1C30A400EC37D4 /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				A0A0507821CE6FE700F903DB /* Controller */,
+				A05DC04021CBF9B40041E36B /* Model */,
+				A05DC03F21CBF9B40041E36B /* View */,
 				5118ED031D1C30A400EC37D4 /* FiveViewController.h */,
 				5118ED041D1C30A400EC37D4 /* FiveViewController.m */,
 				5118ED071D1C30A400EC37D4 /* NumberViewController.h */,
@@ -1329,12 +1356,12 @@
 		5118ED321D1C30A400EC37D4 /* 报单中心 */ = {
 			isa = PBXGroup;
 			children = (
-				5118ED331D1C30A400EC37D4 /* ActivateListViewController.h */,
-				5118ED341D1C30A400EC37D4 /* ActivateListViewController.m */,
-				5118ED351D1C30A400EC37D4 /* AtiinateViewController.h */,
-				5118ED361D1C30A400EC37D4 /* AtiinateViewController.m */,
 				5118ED371D1C30A400EC37D4 /* DeclarationViewController.h */,
 				5118ED381D1C30A400EC37D4 /* DeclarationViewController.m */,
+				5118ED351D1C30A400EC37D4 /* AtiinateViewController.h */,
+				5118ED361D1C30A400EC37D4 /* AtiinateViewController.m */,
+				5118ED331D1C30A400EC37D4 /* ActivateListViewController.h */,
+				5118ED341D1C30A400EC37D4 /* ActivateListViewController.m */,
 				5118ED391D1C30A400EC37D4 /* ResgitViewController.h */,
 				5118ED3A1D1C30A400EC37D4 /* ResgitViewController.m */,
 				5118ED3B1D1C30A400EC37D4 /* ServeControlViewController.h */,
@@ -1821,6 +1848,8 @@
 		64BD6A6B1F63BF4900EC2DD6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				A0346D0821C644F8006FDF9E /* UIButton+PASEExtra.h */,
+				A0346D0921C644F8006FDF9E /* UIButton+PASEExtra.m */,
 				64BD6A6C1F63BFE100EC2DD6 /* KKAlertView.h */,
 				64BD6A6D1F63BFE100EC2DD6 /* KKAlertView.m */,
 				64BD6A7F1F64637000EC2DD6 /* KKActionSheetView.h */,
@@ -1829,6 +1858,41 @@
 				64E0D3DD21AAE1F1004053CE /* GZShopAlertView.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		A05DC03F21CBF9B40041E36B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A05DC04421CBFEBB0041E36B /* GZCoinHistoryListCell.h */,
+				A05DC04521CBFEBB0041E36B /* GZCoinHistoryListCell.m */,
+				A05DC04721CBFED50041E36B /* GZCoinDetailCell.h */,
+				A05DC04821CBFED50041E36B /* GZCoinDetailCell.m */,
+				A0A0508221CE773E00F903DB /* GZChangeListCell.h */,
+				A0A0508321CE773E00F903DB /* GZChangeListCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A05DC04021CBF9B40041E36B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A05DC04121CBFC560041E36B /* GZChuangyebiModel.h */,
+				A05DC04221CBFC560041E36B /* GZChuangyebiModel.m */,
+				A0A0507F21CE76DB00F903DB /* GZChangeOrderModel.h */,
+				A0A0508021CE76DB00F903DB /* GZChangeOrderModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A0A0507821CE6FE700F903DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0A0507921CE706400F903DB /* GZZhunahuanListController.h */,
+				A0A0507A21CE706400F903DB /* GZZhunahuanListController.m */,
+				A0A0507C21CE71BF00F903DB /* GZZhuanhuanHistoryController.h */,
+				A0A0507D21CE71BF00F903DB /* GZZhuanhuanHistoryController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		BF8405721F41481F0029B3B5 /* Tool */ = {
@@ -1890,8 +1954,9 @@
 		517D8A24183707D9000E97B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = GZ;
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = Kohn;
+				ORGANIZATIONNAME = MoutainJay;
 				TargetAttributes = {
 					517D8A2B183707D9000E97B5 = {
 						DevelopmentTeam = AG7FPKU77S;
@@ -2020,6 +2085,7 @@
 				64BD6A831F64647A00EC2DD6 /* MingriZhonggouHomeVC.m in Sources */,
 				64018DB61F62C94000669B0F /* MWPhoto.m in Sources */,
 				64018DB51F62C94000669B0F /* MWGridViewController.m in Sources */,
+				A0A0507E21CE71BF00F903DB /* GZZhuanhuanHistoryController.m in Sources */,
 				5118ED951D1C30A400EC37D4 /* ForgetViewController.m in Sources */,
 				64BD6A8F1F65445900EC2DD6 /* JihuomaInputVC.m in Sources */,
 				641A919D1F5C14C6001E64B4 /* SDWebImageManager.m in Sources */,
@@ -2070,9 +2136,11 @@
 				6435784A1F618DE600716ED6 /* MJRefreshFooter.m in Sources */,
 				6435784B1F618DE600716ED6 /* MJRefreshHeader.m in Sources */,
 				641A91F71F5C2072001E64B4 /* View+MASAdditions.m in Sources */,
+				A0A0508121CE76DB00F903DB /* GZChangeOrderModel.m in Sources */,
 				64018DBC1F62C94000669B0F /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				5118EDB61D1C30A400EC37D4 /* ThreeViewController.m in Sources */,
 				64018DC81F62C94000669B0F /* PSTGridLayoutSection.m in Sources */,
+				A0A0507B21CE706400F903DB /* GZZhunahuanListController.m in Sources */,
 				641A91A01F5C14C6001E64B4 /* UIImage+GIF.m in Sources */,
 				5118ED871D1C30A400EC37D4 /* SBJsonParser.m in Sources */,
 				64B541241F5EA6E1006889E0 /* CBAdvertisementView.m in Sources */,
@@ -2094,6 +2162,7 @@
 				5118ED781D1C30A400EC37D4 /* main.m in Sources */,
 				641A91721F5C060B001E64B4 /* ChuangyiHomeListVC.m in Sources */,
 				643578471F618DE600716ED6 /* MJRefreshAutoFooter.m in Sources */,
+				A05DC04621CBFEBB0041E36B /* GZCoinHistoryListCell.m in Sources */,
 				64E0D3DE21AAE1F1004053CE /* GZShopAlertView.m in Sources */,
 				641A91AB1F5C1CBD001E64B4 /* CHuangyiDetailVC.m in Sources */,
 				5118EDAF1D1C30A400EC37D4 /* FiveViewController.m in Sources */,
@@ -2121,6 +2190,7 @@
 				64018DBA1F62C94000669B0F /* MWZoomingScrollView.m in Sources */,
 				5118EDBB1D1C30A400EC37D4 /* EnquiriesViewController.m in Sources */,
 				64018DC41F62C94000669B0F /* PSTCollectionViewUpdateItem.m in Sources */,
+				A0A0508421CE773E00F903DB /* GZChangeListCell.m in Sources */,
 				64BD6A891F650B1F00EC2DD6 /* ChuangyibiHistoryViewController.m in Sources */,
 				6435784D1F618DE600716ED6 /* MJRefreshAutoNormalFooter.m in Sources */,
 				64BD6A711F642B4900EC2DD6 /* AddressListVC.m in Sources */,
@@ -2147,6 +2217,7 @@
 				BF84057D1F41481F0029B3B5 /* UIColor+Addition.m in Sources */,
 				64BD6A801F64637000EC2DD6 /* KKActionSheetView.m in Sources */,
 				5118ED8E1D1C30A400EC37D4 /* SBJsonStreamWriterState.m in Sources */,
+				A0346D0A21C644F8006FDF9E /* UIButton+PASEExtra.m in Sources */,
 				64018DC11F62C94000669B0F /* PSTCollectionViewFlowLayout.m in Sources */,
 				BF84057E1F41481F0029B3B5 /* UIColor+Helper.m in Sources */,
 				64B541271F5EA725006889E0 /* MyPageControl.m in Sources */,
@@ -2168,6 +2239,7 @@
 				5118ED861D1C30A400EC37D4 /* NSObject+SBJson.m in Sources */,
 				641A91F51F5C2072001E64B4 /* NSArray+MASAdditions.m in Sources */,
 				643578481F618DE600716ED6 /* MJRefreshBackFooter.m in Sources */,
+				A05DC04321CBFC560041E36B /* GZChuangyebiModel.m in Sources */,
 				5118EDC81D1C30A400EC37D4 /* SubordinceViewController.m in Sources */,
 				BF44E8741E7569820091D9C9 /* PaidanRecordViewController.m in Sources */,
 				64018DC71F62C94000669B0F /* PSTGridLayoutRow.m in Sources */,
@@ -2205,6 +2277,7 @@
 				5118EDC01D1C30A400EC37D4 /* BonusViewController.m in Sources */,
 				5118EDA41D1C30A400EC37D4 /* RadioButton.m in Sources */,
 				5118EDB81D1C30A400EC37D4 /* JMCell.m in Sources */,
+				A05DC04921CBFED50041E36B /* GZCoinDetailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2323,8 +2396,8 @@
 		517D8A59183707D9000E97B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconMR;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageMR;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Huaxia Beidou (Beijing) Network Technology Co., Ltd. (ZYTLN4HXKL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = AG7FPKU77S;
@@ -2333,7 +2406,7 @@
 				INFOPLIST_FILE = "NB2/NB2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gongzhong.chuanyi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mingzhi.xing;
 				PRODUCT_NAME = "公众创益";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2344,8 +2417,8 @@
 		517D8A5A183707D9000E97B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconMR;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageMR;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Huaxia Beidou (Beijing) Network Technology Co., Ltd. (ZYTLN4HXKL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = AG7FPKU77S;
@@ -2354,7 +2427,7 @@
 				INFOPLIST_FILE = "NB2/NB2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gongzhong.chuanyi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mingzhi.xing;
 				PRODUCT_NAME = "公众创益";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

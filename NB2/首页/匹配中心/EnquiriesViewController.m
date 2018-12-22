@@ -151,8 +151,9 @@
         NSArray *arraytitle;
         if (self.sign==100)
         {
-//            arraytitle=[[NSArray alloc] initWithObjects:@"单号:",@"接收人帐号:",@"接收人:",@"匹配金额:",@"联系人电话:",@"推荐人:",@"手机号:",@"匹配时间:",@"状态:",nil];
-            arraytitle=[[NSArray alloc] initWithObjects:@"单号:",@"接收人帐号:",@"接收人:",@"会员级别:",@"匹配金额:",@"联系人电话:",@"推荐人:",@"手机号:",@"匹配时间:",@"状态:",nil];
+//            arraytitle=[[NSArray alloc] initWithObjects:@"单号:",@"接收人帐号:",@"接收人:",@"会员级别:",@"匹配金额:",@"联系人电话:",@"推荐人:",@"手机号:",@"匹配时间:",@"状态:",nil];
+            
+            arraytitle=[[NSArray alloc] initWithObjects:@"单号:",@"接收人帐号:",@"接收人:",@"匹配金额:",@"联系人电话:",@"推荐人:",@"手机号:",@"匹配时间:",@"状态:",nil];
 
         }else
         {
@@ -175,7 +176,7 @@
             
             CopyLable *text1;
             UILabel *text;
-            if (i==5 && self.sign == 100) {//复制电话号码的下标
+            if (i==4 && self.sign == 100) {//复制电话号码的下标
                 text1=[[CopyLable alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labletitle.frame)+5, originY, SCREEN_WIDTH*0.6, _labelHeight)];
                 text1.layer.masksToBounds=YES;
                 text1.layer.cornerRadius=3;
@@ -220,28 +221,31 @@
                 }
                 else if(i==3)
                 {
-                    text.text=[idArrayData objectForKey:@"jibie"];
+//                    text.text=[idArrayData objectForKey:@"jibie"];
+                    
+                    text.text=[idArrayData objectForKey:@"jine"];
+
                 }
                 else if(i==4)
                 {
-                    text.text=[idArrayData objectForKey:@"jine"];
+                    text1.text=[idArrayData objectForKey:@"phone"];
+
                 }
                 else if(i==5)
                 {
-                    text1.text=[idArrayData objectForKey:@"phone"];
+                    text.text=[idArrayData objectForKey:@"tuijianname"];
+
                 }
                 else if(i==6)
                 {
-                    text.text=[idArrayData objectForKey:@"tuijianname"];
+                    text.text=[idArrayData objectForKey:@"tuijianphone"];
+
                 }
                 else if(i==7)
                 {
-                    text.text=[idArrayData objectForKey:@"tuijianphone"];
-                }else if(i==8)
-                {
                     text.text=[idArrayData objectForKey:@"pipeishijian"];
                 }
-                else if(i==9)
+                else if(i==8)
                 {
                     if ([[idArrayData objectForKey:@"paystation"] integerValue]==0)
                     {
@@ -315,6 +319,7 @@
     
         if (self.sign==100)//
         {
+            
             if ([[idArrayData objectForKey:@"paystation"] integerValue]==0)
             {
                 UIButton *getbut=[UIButton buttonWithType:UIButtonTypeCustom];

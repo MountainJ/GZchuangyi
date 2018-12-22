@@ -13,8 +13,10 @@
 //#define kBaseURL @"http://star.lodei.com"
 #define kConstPath @"/api/requestLogin"
 
-#define kBaseURL @"http://www.mrgzcy.com"
+//#define kBaseURL @"http://www.mrgzcy.com"
 //#define kBaseURL @"http://test.mrgzcy.com"
+
+#define kBaseURL @"http://cyb.mrgzcy.com"
 
 
 

@@ -35,7 +35,9 @@ static NSString *collectionCellid = @"collectionCellid";
     self.view.backgroundColor=[UIColor whiteColor];
     _indexPage = 1;
     _dataSource = [NSMutableArray array];
-    _colleDataSource = @[@"本金钱包",@"红利钱包",@"众购钱包",@"天使资本"];
+//    _colleDataSource = @[@"本金钱包",@"红利钱包",@"众购钱包",@"天使资本"];
+    _colleDataSource = @[@"本金钱包",@"红利钱包",@"众购钱包"];
+
     _selectionHieght = 40.f;
     self.changeType = @"2";
 
@@ -64,7 +66,7 @@ static NSString *collectionCellid = @"collectionCellid";
     [self.view addSubview:topView];
     [topView setTopView];
     
-    NSArray *arraycolcor=[[NSArray alloc] initWithObjects:@"理财分红",@"钱包明细",@"解冻记录", nil];
+    NSArray *arraycolcor=[[NSArray alloc] initWithObjects:@"工资奖励",@"钱包明细",@"解冻记录", nil];
     for (int i=0; i<arraycolcor.count; i++)
     {
         UIButton *but=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -146,7 +148,8 @@ static NSString *collectionCellid = @"collectionCellid";
     NSMutableDictionary *dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",[NSString stringWithFormat:@"%ld",(long)_indexPage],@"page",[NSString stringWithFormat:@"%d",10],@"num",nil];
     NSString *urlString=nil;
     if (sign==100) {
-        urlString=@"/api/requestLicaiFenghong";
+//        urlString=@"/api/requestLicaiFenghong";
+        urlString=@"/api/requestTuiguang";//2018.12·18修改为推广工资
     }else if (sign==101)
     {
         urlString=@"/api/requestQianbao";
@@ -579,9 +582,9 @@ static NSString *collectionCellid = @"collectionCellid";
     if (indexPath.item == 2) {
         self.changeType = @"4";
     }
-    if (indexPath.item == 3) {
-        self.changeType = @"1";
-    }
+//    if (indexPath.item == 3) {
+//        self.changeType = @"1";
+//    }
     _indexPage = 1;
     [self initData];
    

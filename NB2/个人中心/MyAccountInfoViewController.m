@@ -13,15 +13,19 @@
 //@property (nonatomic,strong) AddInputView *yucunField;
 //@property (nonatomic,strong) AddInputView *mingriField;
 
-@property (nonatomic,strong) AddInputView *fushuField;
+//@property (nonatomic,strong) AddInputView *fushuField;
+
 @property (nonatomic,strong) AddInputView *benjinField;
 @property (nonatomic,strong) AddInputView *hongliField;
 @property (nonatomic,strong) AddInputView *zhonggouField;
-@property (nonatomic,strong) AddInputView *licaiField;
-@property (nonatomic,strong) AddInputView *tianshiField;
-@property (nonatomic,strong) AddInputView *paidanField;
-@property (nonatomic,strong) AddInputView *yuanshiField;
-@property (nonatomic,strong) AddInputView *gouwujifenField;
+@property (nonatomic,strong) AddInputView *chuangyebiField;
+
+
+//@property (nonatomic,strong) AddInputView *licaiField;
+//@property (nonatomic,strong) AddInputView *tianshiField;
+//@property (nonatomic,strong) AddInputView *paidanField;
+//@property (nonatomic,strong) AddInputView *yuanshiField;
+//@property (nonatomic,strong) AddInputView *gouwujifenField;
 
 
 
@@ -41,8 +45,8 @@
 - (void)initUI
 {
     
-    self.fushuField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"负数钱包:"];
-    [self.view addSubview:self.fushuField];
+//    self.fushuField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"负数钱包:"];
+//    [self.view addSubview:self.fushuField];
     
     self.benjinField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"本金钱包:"];
     [self.view addSubview:self.benjinField];
@@ -51,72 +55,85 @@
     [self.view addSubview:self.hongliField];
     self.zhonggouField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"众购钱包:"];
     [self.view addSubview:self.zhonggouField];
-    self.licaiField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"理财钱包:"];
-    [self.view addSubview:self.licaiField];
-    self.tianshiField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"天使资本:"];
-    [self.view addSubview:self.tianshiField];
+    self.chuangyebiField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"创业币:"];
+    [self.view addSubview:self.chuangyebiField];
     
-    self.paidanField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"排单股权:"];
-    [self.view addSubview:self.paidanField];
-    
-    self.yuanshiField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"原始股权:"];
-    [self.view addSubview:self.yuanshiField];
-    
-    self.gouwujifenField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"购物积分:"];
-    [self.view addSubview:self.gouwujifenField];
+//    self.licaiField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"理财钱包:"];
+//    [self.view addSubview:self.licaiField];
+//    self.tianshiField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"天使资本:"];
+//    [self.view addSubview:self.tianshiField];
+//
+//    self.paidanField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"排单股权:"];
+//    [self.view addSubview:self.paidanField];
+//
+//    self.yuanshiField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"原始股权:"];
+//    [self.view addSubview:self.yuanshiField];
+//
+//    self.gouwujifenField = [[AddInputView alloc] initWithFrame:CGRectZero titleName:@"购物积分:"];
+//    [self.view addSubview:self.gouwujifenField];
 
     WS(weakSelf)
-    [self.fushuField mas_makeConstraints:^(MASConstraintMaker *make) {
+//    [self.fushuField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(weakSelf.view.mas_left);
+//        make.right.mas_equalTo(weakSelf.view.mas_right).offset(-KKFitScreen(80));
+//        make.height.mas_equalTo(KKFitScreen(60));
+//        make.top.mas_equalTo(weakSelf.topView.mas_bottom).with.offset(KKFitScreen(80));
+//    }];
+    
+    [self.benjinField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.view.mas_left);
         make.right.mas_equalTo(weakSelf.view.mas_right).offset(-KKFitScreen(80));
         make.height.mas_equalTo(KKFitScreen(60));
         make.top.mas_equalTo(weakSelf.topView.mas_bottom).with.offset(KKFitScreen(80));
-    }];
-    
-    [self.benjinField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(weakSelf.fushuField);
-        make.top.mas_equalTo(weakSelf.fushuField.mas_bottom).offset(KKFitScreen(30));
-        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
+//        make.left.right.mas_equalTo(weakSelf.fushuField);
+//        make.top.mas_equalTo(weakSelf.fushuField.mas_bottom).offset(KKFitScreen(30));
+//        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
     }];
     
     [self.hongliField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(weakSelf.fushuField);
+        make.left.right.mas_equalTo(weakSelf.benjinField);
     make.top.mas_equalTo(weakSelf.benjinField.mas_bottom).offset(KKFitScreen(30));
-        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
+        make.height.mas_equalTo(weakSelf.benjinField.mas_height);
     }];
     [self.zhonggouField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(weakSelf.fushuField);
+        make.left.right.mas_equalTo(weakSelf.benjinField);
     make.top.mas_equalTo(weakSelf.hongliField.mas_bottom).offset(KKFitScreen(30));
-        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
+        make.height.mas_equalTo(weakSelf.benjinField.mas_height);
     }];
-    [self.licaiField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(weakSelf.fushuField);
+    [self.chuangyebiField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(weakSelf.benjinField);
         make.top.mas_equalTo(weakSelf.zhonggouField.mas_bottom).offset(KKFitScreen(30));
-        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
-    }];
-    [self.tianshiField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(weakSelf.fushuField);
-    make.top.mas_equalTo(weakSelf.licaiField.mas_bottom).offset(KKFitScreen(30));
-        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
+        make.height.mas_equalTo(weakSelf.benjinField.mas_height);
     }];
     
-    [self.paidanField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(weakSelf.fushuField);
-        make.top.mas_equalTo(weakSelf.tianshiField.mas_bottom).offset(KKFitScreen(30));
-        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
-    }];
-    
-    [self.yuanshiField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(weakSelf.fushuField);
-        make.top.mas_equalTo(weakSelf.paidanField.mas_bottom).offset(KKFitScreen(30));
-        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
-    }];
-    
-    [self.gouwujifenField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(self.fushuField);
-        make.top.mas_equalTo(self.yuanshiField.mas_bottom).offset(KKFitScreen(30));
-        make.height.mas_equalTo(self.fushuField.mas_height);
-    }];
+//    [self.licaiField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.mas_equalTo(weakSelf.fushuField);
+//        make.top.mas_equalTo(weakSelf.zhonggouField.mas_bottom).offset(KKFitScreen(30));
+//        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
+//    }];
+//    [self.tianshiField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.mas_equalTo(weakSelf.fushuField);
+//    make.top.mas_equalTo(weakSelf.licaiField.mas_bottom).offset(KKFitScreen(30));
+//        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
+//    }];
+//
+//    [self.paidanField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.mas_equalTo(weakSelf.fushuField);
+//        make.top.mas_equalTo(weakSelf.tianshiField.mas_bottom).offset(KKFitScreen(30));
+//        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
+//    }];
+//
+//    [self.yuanshiField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.mas_equalTo(weakSelf.fushuField);
+//        make.top.mas_equalTo(weakSelf.paidanField.mas_bottom).offset(KKFitScreen(30));
+//        make.height.mas_equalTo(weakSelf.fushuField.mas_height);
+//    }];
+//
+//    [self.gouwujifenField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.mas_equalTo(self.fushuField);
+//        make.top.mas_equalTo(self.yuanshiField.mas_bottom).offset(KKFitScreen(30));
+//        make.height.mas_equalTo(self.fushuField.mas_height);
+//    }];
     
     
 
@@ -141,25 +158,27 @@
             if ([dict[@"result"] isKindOfClass:[NSArray class]] && [dict[@"result"] count]){
                 NSDictionary *userDict = [dict[@"result"] firstObject];
 
-                self.fushuField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"fushuqianbao"] ? : @""];
+//                self.fushuField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"fushuqianbao"] ? : @""];
                 self.benjinField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"benjin"] ? : @""];
                 self.hongliField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"hongli"] ? : @""];
                 self.zhonggouField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"zhonggou"] ? : @""];
-                self.licaiField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"licai"] ? : @""];
-                self.tianshiField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"qianbao"] ? :@""];
-                self.paidanField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"paidanguquan"] ? : @""];
-                self.yuanshiField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"yuanshiguquan"] ? : @""];
-                self.gouwujifenField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"gouwujifen"] ? : @""];
-
-                self.fushuField.disableInput = YES;
+                self.chuangyebiField.textInputField.text = SAFE_STRING(userDict[@"chuangyebi"]);
+//                self.licaiField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"licai"] ? : @""];
+//                self.tianshiField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"qianbao"] ? :@""];
+//                self.paidanField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"paidanguquan"] ? : @""];
+//                self.yuanshiField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"yuanshiguquan"] ? : @""];
+//                self.gouwujifenField.textInputField.text = [NSString stringWithFormat:@"%@",userDict[@"gouwujifen"] ? : @""];
+//
+//                self.fushuField.disableInput = YES;
                 self.benjinField.disableInput = YES;
                 self.hongliField.disableInput = YES;
                 self.zhonggouField.disableInput = YES;
-                self.licaiField.disableInput = YES;
-                self.tianshiField.disableInput = YES;
-                self.paidanField.disableInput = YES;
-                self.yuanshiField.disableInput = YES;
-                self.gouwujifenField.disableInput = YES;
+                self.chuangyebiField.disableInput = YES;
+//                self.licaiField.disableInput = YES;
+//                self.tianshiField.disableInput = YES;
+//                self.paidanField.disableInput = YES;
+//                self.yuanshiField.disableInput = YES;
+//                self.gouwujifenField.disableInput = YES;
                 
             }
         }

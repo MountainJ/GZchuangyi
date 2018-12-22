@@ -25,7 +25,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, 68+JF_TOP_ACTIVE_SPACE);
+        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, NAV_BAR_HEIGHT+ APP_STATUS_BAR_HEIGHT);
         self.leftB=[[UIButton alloc]init];
         self.rightB=[[UIButton alloc]init];
         titleCenter= [[UILabel alloc]init];

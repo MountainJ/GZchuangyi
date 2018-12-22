@@ -14,6 +14,8 @@
 #import "RecommedViewController.h"
 #import "NavViewController.h"
 #import "MyAccountInfoViewController.h"
+#import "GZZhunahuanListController.h"
+
 
 @interface FiveViewController ()
 {
@@ -29,13 +31,31 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
 
-    arrayData=[[NSMutableArray alloc] initWithObjects:@"我的激活码",@"我的创益币",@"我的账户",@"资料管理",@"修改密码",@"推荐结构", nil];
+//    arrayData=[[NSMutableArray alloc] initWithObjects:@"我的激活码",@"我的创益币",@"我的账户",@"资料管理",@"修改密码",@"推荐结构", nil];
+    
+//    arrayData=[[NSMutableArray alloc] initWithObjects:@"我的创业币",@"我的账户",@"资料管理",@"修改密码",nil];
+    arrayData=[[NSMutableArray alloc] initWithObjects:@"我的创业币",@"众购转换",@"我的账户",@"资料管理",@"修改密码",nil];
+
     [self initTopView];
     [self initUI];
     
     
     // Do any additional setup after loading the view.
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 -(void)initTopView
 {
     topView = [[TopView alloc]init];
@@ -101,38 +121,41 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row==0)
-    {
-        
-        NumberViewController *number=[[NumberViewController alloc] init];
-        [self.navigationController pushViewController:number animated:YES];
-
-    }
-    if (indexPath.row==1)
+//    if (indexPath.row==0)//我的激活码
+//    {
+//        NumberViewController *number=[[NumberViewController alloc] init];
+//        [self.navigationController pushViewController:number animated:YES];
+//    }
+    if (indexPath.row==0)//我的创业币
     {
         MyPaidanbiViewController *number=[[MyPaidanbiViewController alloc] init];
         [self.navigationController pushViewController:number animated:YES];
     }
-    if (indexPath.row==2)
+    if (indexPath.row==1)//众购转换
+    {
+        GZZhunahuanListController *number=[[GZZhunahuanListController alloc] init];
+        [self.navigationController pushViewController:number animated:YES];
+    }
+    if (indexPath.row==2)//我的账户
     {
          MyAccountInfoViewController *number=[[MyAccountInfoViewController alloc] init];
         [self.navigationController pushViewController:number animated:YES];
     }
-    if (indexPath.row==3)
+    if (indexPath.row==3)//资料管理
     {
         MeansViewController *number=[[MeansViewController alloc] init];
        [self.navigationController pushViewController:number animated:YES];
     }
-    if (indexPath.row==4)
+    if (indexPath.row==4)//修改密码
     {
         AlterViewController *number=[[AlterViewController alloc] init];
         [self.navigationController pushViewController:number animated:YES];
     }
-    if (indexPath.row==5)
-    {
-        RecommedViewController *number=[[RecommedViewController alloc] init];
-        [self.navigationController pushViewController:number animated:YES];
-    }
+//    if (indexPath.row==5)//推荐结构
+//    {
+//        RecommedViewController *number=[[RecommedViewController alloc] init];
+//        [self.navigationController pushViewController:number animated:YES];
+//    }
 
 }
 - (void)didReceiveMemoryWarning {

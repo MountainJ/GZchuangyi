@@ -16,11 +16,22 @@
 #import "MarryConrtolViewController.h"
 #import <StoreKit/StoreKit.h>
 
+#import "UIButton+PASEExtra.h"
+
+
 @interface OneViewController ()<SKStoreProductViewControllerDelegate>
 {
     UIImageView *bodyView;
     UITextField *nameTF;
 }
+
+@property (nonatomic,strong) UIView  *middleView;
+@property (nonatomic,strong) TopView  *topView;
+
+@property (nonatomic,strong) UIButton  *zhouchouBtn;
+@property (nonatomic,strong) UIButton  *baodanBtn;
+@property (nonatomic,strong) UIButton  *yejiBtn;
+@property (nonatomic,strong) UIButton  *mingriBtn;
 
 @end
 
@@ -33,77 +44,81 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 -(void)initUI
 {
-    UIView *barView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20+JF_TOP_ACTIVE_SPACE)];
-//    barView.backgroundColor=[UIColor colorWithRed:5/255.0 green:104.0/255 blue:155.0/255 alpha:1];
-    barView.backgroundColor = COLOR_STATUS_NAV_BAR_BACK;
-    [self.view addSubview:barView];
+//    UIView *barView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20+JF_TOP_ACTIVE_SPACE)];
+//    barView.backgroundColor = COLOR_STATUS_NAV_BAR_BACK;
+//    [self.view addSubview:barView];
+    
+    //标题栏
+    _topView = [[TopView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20+JF_TOP_ACTIVE_SPACE)];
+    _topView.titileTx=@"创业板";
+    _topView.backgroundColor = COLOR_STATUS_NAV_BAR_BACK;
+    [self.view addSubview:_topView];
+    [_topView setTopView];
+    
     //主view
-    bodyView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 20+JF_TOP_ACTIVE_SPACE, SCREEN_WIDTH, SCREEN_HEIGHT-20-JF_TOP_ACTIVE_SPACE-HEIGHT_MENU_VIEW)];
-    bodyView.backgroundColor=[UIColor whiteColor];
+    bodyView=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_topView.frame), SCREEN_WIDTH, self.view.bounds.size.height -_topView.bounds.size.height - TAB_BAR_HEIGHT)];
+    bodyView.backgroundColor= COLOR_RGB(246, 246, 246);
     bodyView.userInteractionEnabled=YES;
     [self.view addSubview:bodyView];
     [self initTopview];
     
 }
+
+
 -(void)initTopview
 {
-    UIImageView *naview=[[UIImageView alloc] initWithFrame:CGRectMake(0,0 ,SCREEN_WIDTH, NAV_BAR_HEIGHT)];
-    naview.backgroundColor = COLOR_STATUS_NAV_BAR_BACK;
-    UIImageView *titleview=[[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-35)/2.0, 3, 35, 40)];
-    titleview.image=[UIImage imageNamed:@"标题栏LOGO"];
-    [naview addSubview:titleview];
-    [bodyView addSubview:naview];
-    
+//    UIImageView *naview=[[UIImageView alloc] initWithFrame:CGRectMake(0,0 ,SCREEN_WIDTH, NAV_BAR_HEIGHT)];
+//    naview.backgroundColor = COLOR_STATUS_NAV_BAR_BACK;
+//    UIImageView *titleview=[[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-35)/2.0, 3, 35, 40)];
+//    titleview.image=[UIImage imageNamed:@"标题栏LOGO"];
+//    [naview addSubview:titleview];
+//    [bodyView addSubview:naview];
     //轮播的图片
-    UIImageView *lunimgview=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(naview.frame), SCREEN_WIDTH, SCREEN_HEIGHT*0.25)];
-    lunimgview.image=[UIImage imageNamed:@"index"];
-    
-//    UILabel *lableText=[[UILabel alloc] initWithFrame:CGRectMake(15,SCREEN_HEIGHT*0.12 ,SCREEN_WIDTH*0.3 ,25)];
-//    lableText.text=@"公益众筹";
-//    lableText.font=[UIFont boldSystemFontOfSize:18];
-//    lableText.textColor=[UIColor whiteColor];
-//    [lunimgview addSubview:lableText];
-//    
-//    UILabel *lableText1=[[UILabel alloc] initWithFrame:CGRectMake(20,CGRectGetMaxY(lableText.frame) ,SCREEN_WIDTH*0.45 ,18 )];
-//    lableText1.text=@"我们一起托起明日之星";
-//    lableText1.font=[UIFont systemFontOfSize:14];
-//    lableText1.textColor=[UIColor whiteColor];
-//    [lunimgview addSubview:lableText1];
-//    
-//    UILabel *lableText2=[[UILabel alloc] initWithFrame:CGRectMake(20,CGRectGetMaxY(lableText1.frame) ,SCREEN_WIDTH*0.65 ,18 )];
-//    lableText2.text=@"我们共同沐浴明日之星的光芒！";
-//    lableText2.font=[UIFont systemFontOfSize:14];
-//    lableText2.textColor=[UIColor whiteColor];
-//    [lunimgview addSubview:lableText2];
-//    
+    UIImageView *lunimgview=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, KKFitScreen(450.))];
+    lunimgview.image=[UIImage imageNamed:@"homepage_top_back"];
     [bodyView addSubview:lunimgview];
     
     UIView *middeleView=[[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(lunimgview.frame), SCREEN_WIDTH, SCREEN_HEIGHT/11.116)];
-    middeleView.backgroundColor=[UIColor colorWithRed:5.0/255 green:96.0/255 blue:139.0/255 alpha:1];
+    middeleView.backgroundColor=[UIColor colorWithRed:30.0/255 green:102.0/255 blue:152.0/255 alpha:1];
     [bodyView addSubview:middeleView];
+    self.middleView = middeleView;
     NSArray *array=[[NSArray alloc] initWithObjects:@"众筹参与",@"众筹红利",@"记录查询", nil];
     NSArray *arrays=[[NSArray alloc] initWithObjects:@"Public participation",@"All chips bonus",@"To match", nil];
-    for (int i=0; i<3; i++)
+    for (int i=0; i<array.count; i++)
     {
         UIButton *but=[UIButton buttonWithType: UIButtonTypeCustom];
         but.showsTouchWhenHighlighted=YES;
         but.frame=CGRectMake(i*SCREEN_WIDTH/3.0, 0, SCREEN_WIDTH/3.0, SCREEN_HEIGHT/11.116);
-        but.tag=400+i;
+        but.tag= 400+i;
         [but addTarget:self action:@selector(clickhelp:) forControlEvents:UIControlEventTouchUpInside];
         UILabel *labletitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 12, SCREEN_WIDTH/3.0, but.frame.size.height/3.0)];
         labletitle.textAlignment=NSTextAlignmentCenter;
-        labletitle.textColor=[UIColor whiteColor];
+        
+        labletitle.textColor= [UIColor whiteColor];
         labletitle.text=[array objectAtIndex:i];
-        labletitle.font=[UIFont systemFontOfSize:13];
+        labletitle.font=[UIFont systemFontOfSize:14.];
         [but addSubview:labletitle];
         UILabel *labletitles=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(labletitle.frame), SCREEN_WIDTH/3.0, but.frame.size.height/3.0)];
-        labletitles.textColor=[UIColor whiteColor];
+        labletitles.textColor=COLOR_RGB(110., 147, 174);
         labletitles.adjustsFontSizeToFitWidth = YES;
         labletitles.text=[arrays objectAtIndex:i];
         labletitles.textAlignment=NSTextAlignmentCenter;
-        labletitles.font=[UIFont systemFontOfSize:13];
+        labletitles.font=[UIFont systemFontOfSize:12.];
         [but addSubview:labletitles];
         [middeleView addSubview:but];
         if (i!=0)
@@ -120,115 +135,98 @@
     if (sender.tag==400||sender.tag==401)
     {
         MarryConrtolViewController *declar=[[MarryConrtolViewController alloc] init];
-        declar.indexsign=sender.tag;
+        declar.indexsign= sender.tag;
         [self.navigationController pushViewController:declar animated:YES];
-
     }else
     {
         RecordViewController *record=[[RecordViewController alloc] init];
         [self.navigationController pushViewController:record animated:YES];
     }
 }
+
+
 -(void)initFoot:(UIView *)senderview
 {
-    UIImageView *naview=[[UIImageView alloc] initWithFrame:CGRectMake(0,CGRectGetMaxY(senderview.frame) , SCREEN_WIDTH, SCREEN_HEIGHT/13.896)];
-    naview.backgroundColor=[UIColor colorWithRed:4.0/255 green:145.0/255 blue:218.0/255 alpha:1];
-    naview.userInteractionEnabled=YES;
-    [bodyView addSubview:naview];
+//    UIImageView *naview=[[UIImageView alloc] initWithFrame:CGRectMake(0,CGRectGetMaxY(senderview.frame) , SCREEN_WIDTH, SCREEN_HEIGHT/13.896)];
+//    naview.backgroundColor=[UIColor colorWithRed:4.0/255 green:145.0/255 blue:218.0/255 alpha:1];
+//    naview.userInteractionEnabled=YES;
+//    [bodyView addSubview:naview];
     
-    nameTF = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.1, 5,SCREEN_WIDTH*0.8,SCREEN_HEIGHT/17.55)];
-    [nameTF setPlaceholder:@" 请输入查询内容"];
-    [nameTF setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
-    nameTF.clearButtonMode = UITextFieldViewModeWhileEditing;//清除button
-    nameTF.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消自动大小写
-    nameTF.contentVerticalAlignment =UIControlContentVerticalAlignmentCenter;
-    nameTF.returnKeyType =UIReturnKeyDone;
-    nameTF.delegate = self;
-    nameTF.textColor=[UIColor grayColor];
-    nameTF.layer.masksToBounds=YES;
-    nameTF.layer.cornerRadius=5;
-    nameTF.backgroundColor=[UIColor whiteColor];
-    [nameTF setFont:[UIFont systemFontOfSize:15]];
-    [naview addSubview:nameTF];
+    //输入查询内容
+//    nameTF = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*0.1, 5,SCREEN_WIDTH*0.8,SCREEN_HEIGHT/17.55)];
+//    [nameTF setPlaceholder:@" 请输入查询内容"];
+//    [nameTF setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
+//    nameTF.clearButtonMode = UITextFieldViewModeWhileEditing;//清除button
+//    nameTF.autocapitalizationType = UITextAutocapitalizationTypeNone;//取消自动大小写
+//    nameTF.contentVerticalAlignment =UIControlContentVerticalAlignmentCenter;
+//    nameTF.returnKeyType =UIReturnKeyDone;
+//    nameTF.delegate = self;
+//    nameTF.textColor=[UIColor grayColor];
+//    nameTF.layer.masksToBounds=YES;
+//    nameTF.layer.cornerRadius=5;
+//    nameTF.backgroundColor=[UIColor whiteColor];
+//    [nameTF setFont:[UIFont systemFontOfSize:15]];
+//    [naview addSubview:nameTF];
     
-    UIButton *shoubut=[UIButton buttonWithType:UIButtonTypeCustom];
-    shoubut.frame=CGRectMake(nameTF.frame.size.width-SCREEN_WIDTH/9.868, 0, SCREEN_WIDTH/9.868, SCREEN_HEIGHT/17.55);
-    [shoubut setBackgroundImage:[UIImage imageNamed:@"shousuo"] forState:UIControlStateNormal];
-    [nameTF addSubview:shoubut];
+//    UIButton *shoubut=[UIButton buttonWithType:UIButtonTypeCustom];
+//    shoubut.frame=CGRectMake(nameTF.frame.size.width-SCREEN_WIDTH/9.868, 0, SCREEN_WIDTH/9.868, SCREEN_HEIGHT/17.55);
+//    [shoubut setBackgroundImage:[UIImage imageNamed:@"shousuo"] forState:UIControlStateNormal];
+//    [nameTF addSubview:shoubut];
     
-    UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame=CGRectMake((SCREEN_WIDTH/2.0-60)/2.0, CGRectGetMaxY(naview.frame)+SCREEN_HEIGHT/22.233, SCREEN_WIDTH/6.25, SCREEN_HEIGHT/11.116);
-    [button setBackgroundImage:[UIImage imageNamed:@"匹配中心"] forState:UIControlStateNormal];
-    button.tag=2;
-    UILabel *title=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(button.frame)+button.frame.size.height/12, SCREEN_WIDTH/2.0, button.frame.size.height/2.0)];
-    title.text=@"众筹平台";
-    title.textAlignment=NSTextAlignmentCenter;
-    title.textColor=[UIColor grayColor];
-    [button addTarget:self action:@selector(clikTag:) forControlEvents:UIControlEventTouchUpInside];
-    [bodyView addSubview:button];
-    [bodyView addSubview:title];
     
-    UIButton *button1=[UIButton buttonWithType:UIButtonTypeCustom];
-    button1.frame=CGRectMake(SCREEN_WIDTH/2.0+(SCREEN_WIDTH/2.0-60)/2.0, CGRectGetMaxY(naview.frame)+SCREEN_HEIGHT/22.233, SCREEN_WIDTH/6.25, SCREEN_HEIGHT/11.116);
-    [button1 setBackgroundImage:[UIImage imageNamed:@"报单中心"] forState:UIControlStateNormal];
-    button1.tag=3;
-    [button1 addTarget:self action:@selector(clikTag:) forControlEvents:UIControlEventTouchUpInside];
-    UILabel *title1=[[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2.0, CGRectGetMaxY(button1.frame)+button.frame.size.height/12, SCREEN_WIDTH/2.0, button.frame.size.height/2.0)];
-    title1.text=@"报单中心";
-    title1.textAlignment=NSTextAlignmentCenter;
-    title1.textColor=[UIColor grayColor];
-    [bodyView addSubview:button1];
-    [bodyView addSubview:title1];
+    //众筹平台
+    CGFloat leftHeight = bodyView.bounds.size.height - CGRectGetMaxY(self.middleView.frame);
     
-    UIButton *button2=[UIButton buttonWithType:UIButtonTypeCustom];
-    button2.frame=CGRectMake((SCREEN_WIDTH/2.0-60)/2.0, CGRectGetMaxY(title1.frame)+button.frame.size.height/3.0, SCREEN_WIDTH/6.25, SCREEN_HEIGHT/11.116);
-    [button2 addTarget:self action:@selector(clikTag:) forControlEvents:UIControlEventTouchUpInside];
-    button2.tag=4;
-    [button2 setBackgroundImage:[UIImage imageNamed:@"奖金业绩"] forState:UIControlStateNormal];
-    UILabel *title2=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(button2.frame)+button.frame.size.height/12, SCREEN_WIDTH/2.0, button.frame.size.height/2.0)];
-    title2.text=@"业绩分红";
-    title2.textAlignment=NSTextAlignmentCenter;
-    title2.textColor=[UIColor grayColor];
-    [bodyView addSubview:button2];
-    [bodyView addSubview:title2];
-
+    CGRect frame=CGRectMake(0, CGRectGetMaxY(self.middleView.frame), SCREEN_WIDTH * 0.5 -1, leftHeight * 0.5);
+    self.zhouchouBtn = [self creatMiddleBottomFrame:frame imgName:@"homepage_bottom_platform" title:@"众筹平台"];
+    [bodyView addSubview:self.zhouchouBtn];
+    //报单
+    CGRect baodanframe = CGRectMake(SCREEN_WIDTH * 0.5, CGRectGetMinY(self.zhouchouBtn.frame), SCREEN_WIDTH * 0.5 -1, CGRectGetHeight(self.zhouchouBtn.frame));
+    self.baodanBtn = [self creatMiddleBottomFrame:baodanframe imgName:@"homepage_bottom_center" title:@"报单中心"];
+    [bodyView addSubview:self.baodanBtn];
+    //业绩分红
+    CGRect yejiframe=CGRectMake(0, CGRectGetMaxY(self.zhouchouBtn.frame)+1, CGRectGetWidth(self.zhouchouBtn.frame), leftHeight * 0.5);
+    self.yejiBtn = [self creatMiddleBottomFrame:yejiframe imgName:@"homepage_bottom_benefit" title:@"业绩分红"];
+    [bodyView addSubview:self.yejiBtn];
     
-    UIButton *button3=[UIButton buttonWithType:UIButtonTypeCustom];
-    button3.frame=CGRectMake(SCREEN_WIDTH/2.0+(SCREEN_WIDTH/2.0-60)/2.0, CGRectGetMaxY(title1.frame)+button.frame.size.height/3.0, SCREEN_WIDTH/6.25, SCREEN_HEIGHT/11.116);
-    [button3 setBackgroundImage:[UIImage imageNamed:@"明日众购"] forState:UIControlStateNormal];
-    button3.tag=5;
-    [button3 addTarget:self action:@selector(clikTag:) forControlEvents:UIControlEventTouchUpInside];
-    UILabel *title3=[[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2.0, CGRectGetMaxY(button3.frame)+button.frame.size.height/12, SCREEN_WIDTH/2.0, button.frame.size.height/2.0)];
-    title3.text=@"明日众购";
-    title3.textAlignment=NSTextAlignmentCenter;
-    title3.textColor=[UIColor grayColor];
-    [bodyView addSubview:button3];
-    [bodyView addSubview:title3];
-
-
+    CGRect mingriframe=CGRectMake(CGRectGetMinX(self.baodanBtn.frame), CGRectGetMinY(self.yejiBtn.frame), CGRectGetWidth(self.baodanBtn.frame), CGRectGetHeight(self.yejiBtn.frame));
+    self.mingriBtn = [self creatMiddleBottomFrame:mingriframe imgName:@"homepage_bottom_tomorrow" title:@"明日众购"];
+    [bodyView addSubview:self.mingriBtn];
 }
+
+- (UIButton *)creatMiddleBottomFrame:(CGRect)frame imgName:(NSString *)imgName title:(NSString *)title
+{
+    UIButton *zhongchouBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    zhongchouBtn.frame = frame;
+    zhongchouBtn.backgroundColor = [UIColor whiteColor];
+    [zhongchouBtn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+    [zhongchouBtn setTitle:title forState:UIControlStateNormal];
+    [zhongchouBtn setTitleColor:COLOR_RGB(145, 145, 145) forState:UIControlStateNormal];
+    [zhongchouBtn pase_setImagePosition:PASEImagePositionTop spacing:20.];
+    [zhongchouBtn addTarget:self action:@selector(clikTag:) forControlEvents:UIControlEventTouchUpInside];
+    return zhongchouBtn;
+}
+
 -(void)clikTag:(UIButton *)snder
 {
-    if (snder.tag==2) //匹配中心
+    if (snder==self.zhouchouBtn) //众筹平台
     {
-//        MarryConrtolViewController *declar=[[MarryConrtolViewController alloc] init];
-//        [self.navigationController pushViewController:declar animated:YES];
-        MingriZhonggouHomeVC *bouns=[[MingriZhonggouHomeVC alloc] init];
-        [self.navigationController pushViewController:bouns animated:YES];
-        
-        
-    }if (snder.tag==3)//报单中心
+        [ToolControl showHudWithResult:NO andTip:@"功能维护中"];
+        return;
+//        MingriZhonggouHomeVC *bouns=[[MingriZhonggouHomeVC alloc] init];
+//        [self.navigationController pushViewController:bouns animated:YES];
+    }if (snder==self.baodanBtn)//报单中心
     {
         DeclarationViewController *declar=[[DeclarationViewController alloc] init];
         [self.navigationController pushViewController:declar animated:YES];
         
     }
-    if (snder.tag==4)//业绩分红
+    if (snder==self.yejiBtn)//业绩分红
     {
         BonusViewController *bouns=[[BonusViewController alloc] init];
         [self.navigationController pushViewController:bouns animated:YES];
     }
-    if (snder.tag==5)//明日众购
+    if (snder==self.mingriBtn)//明日众购
     {
         SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
         //设置代理请求为当前控制器本身

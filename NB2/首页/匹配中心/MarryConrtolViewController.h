@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MarryConrtolViewController : UIViewController<TopViewDelegate>
-@property(nonatomic,assign) int indexsign;
+@property(nonatomic,assign) NSInteger indexsign;
 @end

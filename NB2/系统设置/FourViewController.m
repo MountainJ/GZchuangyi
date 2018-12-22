@@ -32,6 +32,18 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+}
 -(void)initTopView
 {
     topView = [[TopView alloc]init];
@@ -129,8 +141,9 @@
     {
         if (indexPath.row == 0)
         {
-            UIImageView *ivTemp= [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH-100)/2.0, SCREEN_HEIGHT/33.35, SCREEN_WIDTH/3.75, SCREEN_HEIGHT/6.67)];
-            [ivTemp setImage:[UIImage imageNamed:@"app_brand_icon"]];
+            CGFloat width = KKFitScreen(220.);
+            UIImageView *ivTemp= [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH-width)/2.0, SCREEN_HEIGHT/33.35, width,width)];
+            [ivTemp setImage:[UIImage imageNamed:@"logo"]];
             [cell.contentView addSubview:ivTemp];
             
         }
