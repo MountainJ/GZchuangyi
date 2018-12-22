@@ -14,6 +14,8 @@
 #import "RecommedViewController.h"
 #import "NavViewController.h"
 #import "MyAccountInfoViewController.h"
+#import "GZZhunahuanListController.h"
+
 
 @interface FiveViewController ()
 {
@@ -129,9 +131,10 @@
         MyPaidanbiViewController *number=[[MyPaidanbiViewController alloc] init];
         [self.navigationController pushViewController:number animated:YES];
     }
-#warning doing...
     if (indexPath.row==1)//众购转换
     {
+        GZZhunahuanListController *number=[[GZZhunahuanListController alloc] init];
+        [self.navigationController pushViewController:number animated:YES];
     }
     if (indexPath.row==2)//我的账户
     {

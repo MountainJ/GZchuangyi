@@ -361,39 +361,39 @@ static NSString *identifier = @"JMCell";
 }
 
 
--(void)getJihuo:(NSString *)jihuooma logn:(NSString *)zhanghao
-{
-    NSMutableDictionary *dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",[NSString stringWithFormat:@"%@",zhanghao],@"user",[NSString stringWithFormat:@"%@",jihuooma],@"jihuoma",nil];
-    
-    [SVProgressHUD showWithStatus:@"激活中..." maskType:SVProgressHUDMaskTypeBlack];
-    
-    [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestJihuo" params:dicton success:^(NSDictionary *dict) {
-        @try
-        {
-            [SVProgressHUD dismiss];
-            [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
-            if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
-            {
-                [self initData];
-                
-            }
-            
-            NSLog(@"%@",dict);
-            
-        }
-        @catch (NSException *exception)
-        {
-            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-            
-        }
-        @finally {
-            
-        }
-    } failure:^(NSError *error) {
-        [SVProgressHUD dismiss];
-        [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
-    }];
-}
+//-(void)getJihuo:(NSString *)jihuooma logn:(NSString *)zhanghao
+//{
+//    NSMutableDictionary *dicton=[NSMutableDictionary dictionaryWithObjectsAndKeys:UID,@"id",MD5,@"md5",[NSString stringWithFormat:@"%@",zhanghao],@"user",[NSString stringWithFormat:@"%@",jihuooma],@"jihuoma",nil];
+//    
+//    [SVProgressHUD showWithStatus:@"激活中..." maskType:SVProgressHUDMaskTypeBlack];
+//    
+//    [HttpTool postWithBaseURL:kBaseURL path:@"/api/requestJihuo" params:dicton success:^(NSDictionary *dict) {
+//        @try
+//        {
+//            [SVProgressHUD dismiss];
+//            [ToolControl showHudWithResult:NO andTip:[dict objectForKey:@"msg"]];
+//            if ([[dict objectForKey:@"station"] isEqualToString:@"success"])
+//            {
+//                [self initData];
+//                
+//            }
+//            
+//            NSLog(@"%@",dict);
+//            
+//        }
+//        @catch (NSException *exception)
+//        {
+//            [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//            
+//        }
+//        @finally {
+//            
+//        }
+//    } failure:^(NSError *error) {
+//        [SVProgressHUD dismiss];
+//        [ToolControl showHudWithResult:NO andTip:ERRORTITLE];
+//    }];
+//}
 
 
 -(void)actionLeft

@@ -274,6 +274,10 @@
 		A05DC04321CBFC560041E36B /* GZChuangyebiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A05DC04221CBFC560041E36B /* GZChuangyebiModel.m */; };
 		A05DC04621CBFEBB0041E36B /* GZCoinHistoryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05DC04521CBFEBB0041E36B /* GZCoinHistoryListCell.m */; };
 		A05DC04921CBFED50041E36B /* GZCoinDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05DC04821CBFED50041E36B /* GZCoinDetailCell.m */; };
+		A0A0507B21CE706400F903DB /* GZZhunahuanListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0507A21CE706400F903DB /* GZZhunahuanListController.m */; };
+		A0A0507E21CE71BF00F903DB /* GZZhuanhuanHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0507D21CE71BF00F903DB /* GZZhuanhuanHistoryController.m */; };
+		A0A0508121CE76DB00F903DB /* GZChangeOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0508021CE76DB00F903DB /* GZChangeOrderModel.m */; };
+		A0A0508421CE773E00F903DB /* GZChangeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A0508321CE773E00F903DB /* GZChangeListCell.m */; };
 		BF44E8711E7560810091D9C9 /* MyPaidanbiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44E8701E7560810091D9C9 /* MyPaidanbiViewController.m */; };
 		BF44E8741E7569820091D9C9 /* PaidanRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF44E8731E7569820091D9C9 /* PaidanRecordViewController.m */; };
 		BF44E8761E7584ED0091D9C9 /* index.png in Resources */ = {isa = PBXBuildFile; fileRef = BF44E8751E7584ED0091D9C9 /* index.png */; };
@@ -770,6 +774,14 @@
 		A05DC04521CBFEBB0041E36B /* GZCoinHistoryListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZCoinHistoryListCell.m; sourceTree = "<group>"; };
 		A05DC04721CBFED50041E36B /* GZCoinDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZCoinDetailCell.h; sourceTree = "<group>"; };
 		A05DC04821CBFED50041E36B /* GZCoinDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZCoinDetailCell.m; sourceTree = "<group>"; };
+		A0A0507921CE706400F903DB /* GZZhunahuanListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZZhunahuanListController.h; sourceTree = "<group>"; };
+		A0A0507A21CE706400F903DB /* GZZhunahuanListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZZhunahuanListController.m; sourceTree = "<group>"; };
+		A0A0507C21CE71BF00F903DB /* GZZhuanhuanHistoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZZhuanhuanHistoryController.h; sourceTree = "<group>"; };
+		A0A0507D21CE71BF00F903DB /* GZZhuanhuanHistoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZZhuanhuanHistoryController.m; sourceTree = "<group>"; };
+		A0A0507F21CE76DB00F903DB /* GZChangeOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZChangeOrderModel.h; sourceTree = "<group>"; };
+		A0A0508021CE76DB00F903DB /* GZChangeOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZChangeOrderModel.m; sourceTree = "<group>"; };
+		A0A0508221CE773E00F903DB /* GZChangeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZChangeListCell.h; sourceTree = "<group>"; };
+		A0A0508321CE773E00F903DB /* GZChangeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZChangeListCell.m; sourceTree = "<group>"; };
 		BF44E86F1E7560810091D9C9 /* MyPaidanbiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPaidanbiViewController.h; sourceTree = "<group>"; };
 		BF44E8701E7560810091D9C9 /* MyPaidanbiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPaidanbiViewController.m; sourceTree = "<group>"; };
 		BF44E8721E7569820091D9C9 /* PaidanRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaidanRecordViewController.h; sourceTree = "<group>"; };
@@ -1223,6 +1235,7 @@
 		5118ED001D1C30A400EC37D4 /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				A0A0507821CE6FE700F903DB /* Controller */,
 				A05DC04021CBF9B40041E36B /* Model */,
 				A05DC03F21CBF9B40041E36B /* View */,
 				5118ED031D1C30A400EC37D4 /* FiveViewController.h */,
@@ -1854,6 +1867,8 @@
 				A05DC04521CBFEBB0041E36B /* GZCoinHistoryListCell.m */,
 				A05DC04721CBFED50041E36B /* GZCoinDetailCell.h */,
 				A05DC04821CBFED50041E36B /* GZCoinDetailCell.m */,
+				A0A0508221CE773E00F903DB /* GZChangeListCell.h */,
+				A0A0508321CE773E00F903DB /* GZChangeListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1863,8 +1878,21 @@
 			children = (
 				A05DC04121CBFC560041E36B /* GZChuangyebiModel.h */,
 				A05DC04221CBFC560041E36B /* GZChuangyebiModel.m */,
+				A0A0507F21CE76DB00F903DB /* GZChangeOrderModel.h */,
+				A0A0508021CE76DB00F903DB /* GZChangeOrderModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A0A0507821CE6FE700F903DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0A0507921CE706400F903DB /* GZZhunahuanListController.h */,
+				A0A0507A21CE706400F903DB /* GZZhunahuanListController.m */,
+				A0A0507C21CE71BF00F903DB /* GZZhuanhuanHistoryController.h */,
+				A0A0507D21CE71BF00F903DB /* GZZhuanhuanHistoryController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		BF8405721F41481F0029B3B5 /* Tool */ = {
@@ -2057,6 +2085,7 @@
 				64BD6A831F64647A00EC2DD6 /* MingriZhonggouHomeVC.m in Sources */,
 				64018DB61F62C94000669B0F /* MWPhoto.m in Sources */,
 				64018DB51F62C94000669B0F /* MWGridViewController.m in Sources */,
+				A0A0507E21CE71BF00F903DB /* GZZhuanhuanHistoryController.m in Sources */,
 				5118ED951D1C30A400EC37D4 /* ForgetViewController.m in Sources */,
 				64BD6A8F1F65445900EC2DD6 /* JihuomaInputVC.m in Sources */,
 				641A919D1F5C14C6001E64B4 /* SDWebImageManager.m in Sources */,
@@ -2107,9 +2136,11 @@
 				6435784A1F618DE600716ED6 /* MJRefreshFooter.m in Sources */,
 				6435784B1F618DE600716ED6 /* MJRefreshHeader.m in Sources */,
 				641A91F71F5C2072001E64B4 /* View+MASAdditions.m in Sources */,
+				A0A0508121CE76DB00F903DB /* GZChangeOrderModel.m in Sources */,
 				64018DBC1F62C94000669B0F /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				5118EDB61D1C30A400EC37D4 /* ThreeViewController.m in Sources */,
 				64018DC81F62C94000669B0F /* PSTGridLayoutSection.m in Sources */,
+				A0A0507B21CE706400F903DB /* GZZhunahuanListController.m in Sources */,
 				641A91A01F5C14C6001E64B4 /* UIImage+GIF.m in Sources */,
 				5118ED871D1C30A400EC37D4 /* SBJsonParser.m in Sources */,
 				64B541241F5EA6E1006889E0 /* CBAdvertisementView.m in Sources */,
@@ -2159,6 +2190,7 @@
 				64018DBA1F62C94000669B0F /* MWZoomingScrollView.m in Sources */,
 				5118EDBB1D1C30A400EC37D4 /* EnquiriesViewController.m in Sources */,
 				64018DC41F62C94000669B0F /* PSTCollectionViewUpdateItem.m in Sources */,
+				A0A0508421CE773E00F903DB /* GZChangeListCell.m in Sources */,
 				64BD6A891F650B1F00EC2DD6 /* ChuangyibiHistoryViewController.m in Sources */,
 				6435784D1F618DE600716ED6 /* MJRefreshAutoNormalFooter.m in Sources */,
 				64BD6A711F642B4900EC2DD6 /* AddressListVC.m in Sources */,

@@ -10,7 +10,6 @@
 
 #import "GZCoinHistoryListCell.h"
 
-//#define URL_TRANSFER_HISTORY  @"/api/requestChuangyibizrlist"
 #define URL_TRANSFER_HISTORY  @"/api/requestChuangyebizrlist" //转让记录
 #define URL_ACCEPT_HISTORY  @"/api/requestChuangyebijslist" //接收记录
 #define URL_COIN_DETAIL  @"/api/requestChuangyebilist" //创业币明细
